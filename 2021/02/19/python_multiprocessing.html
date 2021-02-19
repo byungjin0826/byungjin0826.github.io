@@ -1,10 +1,10 @@
 <!DOCTYPE html><html lang="kr">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>블로그를 시작하며 - byungjin0826의 블로그</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>python 병렬처리와 ray에 대하여 - byungjin0826의 블로그</title>
 
-<meta name="description" content="블로그를 시작하며블로그를 하면 좋겠다는 생각은 석사과정 중에 처음 했던 것 같다. 연구를 위한 자료 조사는 최종적으로는 논문이 중심이 되겠지만, 처음부터 그렇게 접근하는데는 어려움이 많다. 새로운 분야, 새로운 용어를 접할 때 가장 편하고 쉬운 방법은 위키피디아를 검색하거나 전문가...">
-<link rel="canonical" href="/2021/02/19/about-create-blog.html"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="python 병렬처리(내용 수정중)Ray(내용 수정중)">
+<link rel="canonical" href="/2021/02/19/python_multiprocessing.html"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -279,45 +279,31 @@
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>블로그를 시작하며</h1></header><span class="split-space">&nbsp;</span>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>python 병렬처리와 ray에 대하여</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="Edit on Github"
-            href="https://github.com/byungjin0826/byungjin0826.github.io/tree/master/_posts/2021-02-19-about create blog.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="블로그를 시작하며"><div class="article__info clearfix"><ul class="left-col menu"><li>
+            href="https://github.com/byungjin0826/byungjin0826.github.io/tree/master/_posts/2021-02-19-python_multiprocessing.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="python 병렬처리와 ray에 대하여"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=daily">daily</a>
+                href="/archive.html?tag=python%2C">python,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=multiprocessing%2C">multiprocessing,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=ray">ray</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 19, 2021</span>
             </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00">
-    <meta itemprop="keywords" content="daily"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+    <meta itemprop="keywords" content="python,,multiprocessing,,ray"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><h2 id="블로그를-시작하며">블로그를 시작하며</h2>
+<div class="article__content" itemprop="articleBody"><h2 id="python-병렬처리">python 병렬처리</h2>
 
-<p>블로그를 하면 좋겠다는 생각은 석사과정 중에 처음 했던 것 같다. 연구를 위한 자료 조사는 최종적으로는 논문이 중심이 되겠지만, 처음부터 그렇게 접근하는데는 어려움이 많다. 새로운 분야, 새로운 용어를 접할 때 가장 편하고 쉬운 방법은 위키피디아를 검색하거나 전문가들이 작성한 블로그를 살펴보는 것이다. 지금도 연구와 개발을 하면서 새로운 것 투성이다. 많은 전문가들이 블로그에 다양한 사람들이 다양한 관점으로 겪었던 어려움과 해결방안, 쉬운 활용예들을 작성한다. 그런 글들은 나와 같은 후발주자들에게 작성자의 의도 이상으로 많은 도움이 된다. 논문에서는 체계적이고 정확한 이론들을 학습하기에 용이하지만, 실제 활용법을 배우는 데는 어려움이 있다. 블로그에서는 예제 코드나 실사용 예들을 제공하여 논문만으로는 부족한 부분을 채울 수 있다.</p>
+<p>(내용 수정중)</p>
 
-<p>블로그에 글을 쓰는 것은 논문이나 보고서처럼 공적인 글을 쓸때와 다른 특징이 있다. 체계를 갖추지 않고 작성할 수 있으며, 누군가에게 승인을 받지 않아도 된다는 것이다. 모든 일과 마찬가지로 누군가에게 평가받는 일은 두렵고, 부담스럽다. “유시민의 글쓰기 특강”에서 공감했던 내용 중 하나는 아무리 좋은 글을 많이 봐도 글쓰기는 늘지 않는 다는 것이다. NBA를 맨날 본다고 농구 실력이 좋아지지는 않는다. 아마 나와 같은 어려움을 겪었거나 겪고있는 사람들이 많을 것이라고 생각한다. 석사과정을 처음 시작할 때 내가 해야되는 것과 필요한 능력이 무엇인지 잘 몰랐다. 당시에는  글쓰기에 대한 경험은 부족한데, 논문과 보고서를 작성해야 했다. 글이라고 해봐야 문자 보내고 동아리 공지 올리는 정도 였던 것 같다. 만일 당시에 블로그를 개설했다면 논문의 질이 조금이라도 더 좋아지지 않았을까?</p>
+<h2 id="ray">Ray</h2>
 
-<p>이런 생각을 갖고 있었음에도 석사 과정 중에는 블로그를 개설하지는 않았다. 이전 회사에 재직 중일 당시 github 블로그를 선택하여 처음 개설하였다. github 블로그를 선택한 이유는 markdown 형식에 빠져있었고, github에 익숙해지는 것이 꼭 필요하다고 생각해서였다. markdown을 쓰면 한글이나 다른 워드 프로그램에 비해 수고를 적게 들이고도 깔끔하게 작성할 수 있다. markdown 작성기인 typora의 디자인도 마음에 들었다. 현재까지 사용하는 이유 중에 큰 부분을 차지한다.</p>
-
-<p>처음 개설한 이유로 작성하지 않은 이유는 포스팅 하는 과정을 자동화하려다 실패하였기 때문이다. github page는 정적으로 동작하여 미리 빌드하는 과정이 필요하다. 요약하자면 아래와 같은 작업이 이루어져야 블로그에 글이 추가된다.</p>
-
-<ol>
-  <li>markdown 양식의 포스트 작성</li>
-  <li>jekyll build (build시 _site 라는 폴더에 블로그 생성)</li>
-  <li>_site 폴더 안에 내용물을 github에 푸쉬</li>
-</ol>
-
-<p>해당 과정이 번거롭다는 생각에 CI(continous integration)를 통한 자동화를 하고자 했었다. 지금 생각해보면 굳이 이렇게까지 했어야 싶긴 하다. 아래와 같이 스크립트를 작성하면 끝나는 일이었다.</p>
-
-<div class="language-sh highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> <span class="o">{</span>build path<span class="o">}</span>
-jekyll build
-<span class="nb">cd</span> <span class="o">{</span>_site folder path<span class="o">}</span>
-git add <span class="nb">.</span>
-git commit <span class="nb">.</span> <span class="nt">-m</span> <span class="s2">"update {date}"</span>
-git push origin main
-</code></pre></div></div>
-
-<p>결론적으로 오래전에 쓰고 블로그를 하고 싶다는 생각을 했지만, 시작만 하고 지속적으로 작성하지는 않았다. 우선순위를 작성에 두고 꾸준하게 실천해야겠다. 누군가에게 승인 받아야 하는 일이 아니다. 물론 틀린 부분이나 정정하고 싶은 부분이 생길 순 있다고 생각한다. 그때 다시 작성하면 그만이다. 부담 없이 지속적으로 실천하는 것이 목표이다(이 부분은 고치지말자!!). 꾸준히 어떤 것이다로 게시하여 습관으로 만들자!</p>
+<p>(내용 수정중)</p>
 </div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-02-19T00:00:00+00:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->
@@ -329,7 +315,7 @@ git push origin main
       </a>
     </p>
   </div></div></footer>
-</div>
+<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2021/02/19/about_create_blog.html">블로그를 시작하며</a></div></div></div>
 
 </div>
 
