@@ -3,7 +3,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>python 병렬처리와 ray에 대하여 - byungjin0826의 블로그</title>
 
-<meta name="description" content="python 병렬처리(내용 수정중)Ray(내용 수정중)">
+<meta name="description" content="python 병렬처리와 ray를 쓰는 이유.병렬 처리는 멀티 스레드와 멀티 프로세싱의 두 가지 방법이 있다. 멀티 스레드는 프로세스를 여러 개의 조각(스레드)로 나누어 작업하는 방식이며, 멀티 프로세싱은 아예 여러 개의 프로세스로 동시에 처리하는 방식을 말한다. 두 가지의 장단점은...">
 <link rel="canonical" href="/2021/02/19/python_multiprocessing.html"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
@@ -291,19 +291,74 @@
                 href="/archive.html?tag=multiprocessing%2C">multiprocessing,</a>
             </li><li>
               <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=multithread%2C">multithread,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=ray">ray</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 19, 2021</span>
             </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00">
-    <meta itemprop="keywords" content="python,,multiprocessing,,ray"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+    <meta itemprop="keywords" content="python,,multiprocessing,,multithread,,ray"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><h2 id="python-병렬처리">python 병렬처리</h2>
+<div class="article__content" itemprop="articleBody"><h2 id="python-병렬처리와-ray를-쓰는-이유">python 병렬처리와 ray를 쓰는 이유.</h2>
 
-<p>(내용 수정중)</p>
+<p>병렬 처리는 멀티 스레드와 멀티 프로세싱의 두 가지 방법이 있다. 멀티 스레드는 프로세스를 여러 개의 조각(스레드)로 나누어 작업하는 방식이며, 멀티 프로세싱은 아예 여러 개의 프로세스로 동시에 처리하는 방식을 말한다. 두 가지의 장단점은 자원을 활용하는 방법의 차이에서 발생한다. 멀티 스레드는 stack 메모리를 제외한 다른 메모리를 공유한다. 따라서 성능은 좋지만 메모리 관리에 유의해야 한다. 잘못 사용하게 되면 경쟁 상태(race mode)라고 부르는 문제가 야기된다. 멀티 스레드로 성능 향상을 위해서는 멀티 코어가 필수적이다. 싱글 코어에서 스레드를 적용할 경우 순차처리와 성능차이가 없게 된다. 멀티 프로세싱은 자원을 개별적으로 사용하기에 안정적이나, 자원의 중복이나 비효율적인 측면이 있다.</p>
 
-<h2 id="ray">Ray</h2>
+<p>파이썬에서는 GIL(Global Interpreter Lock)이라고 부르는 제약사항이 있다. GIL로 인하여 각 프로세스는 한 개의 CPU만이 사용가능하다. 위에 작성한 바와 같이 멀티 스레드는 멀티 코어 환경에서만 효과가 발휘된다. GIL로 인하여 CPU 작업이 주가 되는 경우 멀티스레드로 인한 성능 향상은 기대하기 어렵다. 다만 I/O 작업 같이 CPU의 사용이 적은 작업에는 효과적으로 적용할 수 있다. 따라서 파이썬에서는 병렬 처리를 활용하여 성능 향상을 하고자 할 경우, 멀티 프로세싱을 사용해야 한다.</p>
 
-<p>(내용 수정중)</p>
+<p>파이썬에서 멀티 프로세싱은 <code class="language-plaintext highlighter-rouge">multiprocessing</code> 패키지를 활용하여 구현할 수 있다. 멀티 프로세싱은 작업 할당, 프로세스 간 데이터 교환 등 번거로운 작업을 동반한다. <code class="language-plaintext highlighter-rouge">ray</code> 패키지를 활용할 경우 간단한 방법으로 멀티 프로세싱을 구현할 수 있다. 또한 cpu 개수와 gpu 제한 등을 간단하게 처리할 수 있어, 딥러닝 프레임워크에 적용할 때도 유리한 점이 있다.</p>
+
+<p>아래 작성한 코드와 같이 기존에 작성된 클래스에 <code class="language-plaintext highlighter-rouge">@ray.remote</code> 데코레이터를 추가하여 간단하게 변경 가능하다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">ray</span>
+
+<span class="n">ray</span><span class="p">.</span><span class="n">init</span><span class="p">(</span><span class="n">num_cpus</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">num_gpus</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="o">@</span><span class="n">ray</span><span class="p">.</span><span class="n">remote</span>
+<span class="k">class</span> <span class="nc">Test</span><span class="p">:</span>
+  <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'init'</span><span class="p">)</span>
+  
+  <span class="k">def</span> <span class="nf">add</span><span class="p">():</span>
+    <span class="bp">self</span><span class="p">.</span><span class="n">n</span> <span class="o">+=</span> <span class="mi">1</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'add'</span><span class="p">)</span>
+    
+  <span class="k">def</span> <span class="nf">get_n</span><span class="p">():</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">'get'</span><span class="p">)</span>
+    <span class="k">return</span> <span class="bp">self</span><span class="p">.</span><span class="n">n</span>
+  
+  
+<span class="k">if</span> <span class="n">__name__</span> <span class="o">==</span> <span class="s">"__main__"</span><span class="p">:</span>
+  <span class="n">actors</span> <span class="o">=</span> <span class="p">[</span><span class="n">Test</span><span class="p">.</span><span class="n">remote</span><span class="p">()</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">)]</span>
+  <span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">add</span><span class="p">.</span><span class="n">remote</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">actors</span><span class="p">]</span>
+  <span class="n">object_ref</span> <span class="o">=</span> <span class="p">[</span><span class="n">a</span><span class="p">.</span><span class="n">get_n</span><span class="p">.</span><span class="n">remote</span><span class="p">()</span> <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="n">actors</span><span class="p">]</span>  <span class="c1"># object ref를 반환
+</span>  <span class="n">results</span> <span class="o">=</span> <span class="n">ray</span><span class="p">.</span><span class="n">get</span><span class="p">(</span><span class="n">object_ref</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>위에서 처리하는 방식에 대해서 간단하게 요약하자면 다음과 같다. ray는 프로세스를 액터의 수 만큼 생성하여 코드를 수행하고 object ref라고 하는 주소를 반환한다. 해당 결과물은 <code class="language-plaintext highlighter-rouge">ray.get</code> 을 통해 확인할 수 있다.</p>
+
+<p>프로세스 간 데이터 교환도  <code class="language-plaintext highlighter-rouge">ray.put</code> 을 이용할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="n">y</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">object_ref</span> <span class="o">=</span> <span class="n">ray</span><span class="p">.</span><span class="n">put</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+</code></pre></div></div>
+
+<p>아래와 같이 메모리에 저장할 수 있고, 서로 다른 프로세스에서 해당 데이터를 활용할 수 있다.</p>
+
+<h3 id="요약">요약</h3>
+
+<ul>
+  <li>파이썬에서는 CPU의 사용이 적은 작업만 멀티스레드로 처리하자</li>
+  <li>멀티 프로세싱을 하고 싶다면 RAY 패키지를 활용하여 쉽게 처리할 수 있다</li>
+</ul>
+
+<h3 id="현재까지의-문제점">현재까지의 문제점</h3>
+
+<ul>
+  <li>worker 수를 무제한 늘릴 수는 없는 것 같다.</li>
+  <li>elasticsearch를 통해 로드 시에 문제가 발생한다. -&gt; ray.put 적용을 시도해 보는게 좋을 듯 하다.</li>
+</ul>
 </div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-02-19T00:00:00+00:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->
