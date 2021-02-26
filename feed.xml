@@ -1,5 +1,42 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="kr" /><updated>2021-02-24T01:14:00+00:00</updated><id>/feed.xml</id><title type="html">byungjin0826의 블로그</title><subtitle>byungjin0826의 블로그
-</subtitle><author><name>Shin, Byungjin</name><email>byungjin0826@gmail.com</email></author><entry><title type="html">python 병렬처리와 ray에 대하여</title><link href="/2021/02/23/python_multiprocessing.html" rel="alternate" type="text/html" title="python 병렬처리와 ray에 대하여" /><published>2021-02-23T00:00:00+00:00</published><updated>2021-02-23T00:00:00+00:00</updated><id>/2021/02/23/python_multiprocessing</id><content type="html" xml:base="/2021/02/23/python_multiprocessing.html">&lt;h2 id=&quot;python-병렬처리와-ray를-쓰는-이유&quot;&gt;python 병렬처리와 ray를 쓰는 이유.&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="kr"><generator uri="https://jekyllrb.com/" version="4.2.0">Jekyll</generator><link href="/feed.xml" rel="self" type="application/atom+xml" /><link href="/" rel="alternate" type="text/html" hreflang="kr" /><updated>2021-02-26T07:17:40+00:00</updated><id>/feed.xml</id><title type="html">byungjin0826의 블로그</title><subtitle>byungjin0826의 블로그
+</subtitle><author><name>Shin, Byungjin</name><email>byungjin0826@gmail.com</email></author><entry><title type="html">python configparser</title><link href="/2021/02/26/python_configparser.html" rel="alternate" type="text/html" title="python configparser" /><published>2021-02-26T00:00:00+00:00</published><updated>2021-02-26T00:00:00+00:00</updated><id>/2021/02/26/python_configparser</id><content type="html" xml:base="/2021/02/26/python_configparser.html">&lt;p&gt;프로그램의 중요한 옵션들을 저장하고 관리하기 위해 cfg나 ini 파일 등을 사용한다. 파이썬에서 configparse 패키지를 활용할 수 있다. configparse는 이런 파일들을 읽고, 쓸 수 있는 클래스를 제공한다.&lt;/p&gt;
+
+&lt;p&gt;설정 파일은 아래 예시와 같이 작성된다.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;[DEFAULT]
+a = a
+b = b
+c = c
+
+[SECTION]
+option1 = a
+option2 = b
+option3 = c
+option4 = d
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;설정 파일을 읽기 위해 ConfigParser의 인스턴스를 생성한다. ConfigParser는 read 메소드를 제공하며, 파일 경로를 입력하여 설정 파일을 읽어낸다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;configparse&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ConfigParser&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ConfigParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{cfg_file_path}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래 코드를 활용하면 모든 설정 값을 key, value 형태로 읽어들일 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;key&lt;/span&gt; &lt;span class=&quot;ow&quot;&gt;in&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;section&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;value&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;section&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;key&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;또한 설정파일에 주석이 있는 경우에는 ConfigParser 클래스에 comment_prefix 파래미터를 입력하여 제거할 수 있다.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;configparse&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ConfigParser&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;ConfigParser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;comment_prefix&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'#'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;';'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;])&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;parser&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;read&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'{cfg_file_path}'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>Shin, Byungjin</name><email>byungjin0826@gmail.com</email></author><category term="python," /><category term="configparser" /><summary type="html">프로그램의 중요한 옵션들을 저장하고 관리하기 위해 cfg나 ini 파일 등을 사용한다. 파이썬에서 configparse 패키지를 활용할 수 있다. configparse는 이런 파일들을 읽고, 쓸 수 있는 클래스를 제공한다. 설정 파일은 아래 예시와 같이 작성된다. [DEFAULT] a = a b = b c = c [SECTION] option1 = a option2 = b option3 = c option4 = d 설정 파일을 읽기 위해 ConfigParser의 인스턴스를 생성한다. ConfigParser는 read 메소드를 제공하며, 파일 경로를 입력하여 설정 파일을 읽어낸다. from configparse import ConfigParser parser = ConfigParser() parser.read('{cfg_file_path}') 아래 코드를 활용하면 모든 설정 값을 key, value 형태로 읽어들일 수 있다. for section in parser: for key in section: value = parser[section].get(key) 또한 설정파일에 주석이 있는 경우에는 ConfigParser 클래스에 comment_prefix 파래미터를 입력하여 제거할 수 있다. from configparse import ConfigParser parser = ConfigParser(comment_prefix=['#', ';']) parser.read('{cfg_file_path}')</summary></entry><entry><title type="html">python 병렬처리와 ray에 대하여</title><link href="/2021/02/23/python_multiprocessing.html" rel="alternate" type="text/html" title="python 병렬처리와 ray에 대하여" /><published>2021-02-23T00:00:00+00:00</published><updated>2021-02-23T00:00:00+00:00</updated><id>/2021/02/23/python_multiprocessing</id><content type="html" xml:base="/2021/02/23/python_multiprocessing.html">&lt;h2 id=&quot;python-병렬처리와-ray를-쓰는-이유&quot;&gt;python 병렬처리와 ray를 쓰는 이유.&lt;/h2&gt;
 
 &lt;p&gt;병렬 처리는 멀티 스레드와 멀티 프로세싱의 두 가지 방법이 있다. 멀티 스레드는 프로세스를 여러 개의 조각(스레드)로 나누어 작업하는 방식이며, 멀티 프로세싱은 아예 여러 개의 프로세스로 동시에 처리하는 방식을 말한다. 두 가지의 장단점은 자원을 활용하는 방법의 차이에서 발생한다. 멀티 스레드는 stack 메모리를 제외한 다른 메모리를 공유한다. 따라서 성능은 좋지만 메모리 관리에 유의해야 한다. 잘못 사용하게 되면 경쟁 상태(race mode)라고 부르는 문제가 야기된다. 멀티 스레드로 성능 향상을 위해서는 멀티 코어가 필수적이다. 싱글 코어에서 스레드를 적용할 경우 순차처리와 성능차이가 없게 된다. 멀티 프로세싱은 자원을 개별적으로 사용하기에 안정적이나, 자원의 중복이나 비효율적인 측면이 있다.&lt;/p&gt;
 

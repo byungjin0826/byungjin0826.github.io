@@ -1,11 +1,10 @@
 <!DOCTYPE html><html lang="kr">
   <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Home - byungjin0826의 블로그</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>python configparser - byungjin0826의 블로그</title>
 
-<meta name="description" content="byungjin0826의 블로그
-">
-<link rel="canonical" href="/"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="프로그램의 중요한 옵션들을 저장하고 관리하기 위해 cfg나 ini 파일 등을 사용한다. 파이썬에서 configparse 패키지를 활용할 수 있다. configparse는 이런 파일들을 읽고, 쓸 수 있는 클래스를 제공한다.설정 파일은 아래 예시와 같이 작성된다.[DEFAULT]a ...">
+<link rel="canonical" href="/2021/02/26/python_configparser.html"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -255,7 +254,7 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -274,18 +273,32 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>Home</h1></header><meta itemprop="headline" content="Home"><meta itemprop="author" content="Shin, Byungjin"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/02/26/python_configparser.html"><h2 itemprop="headline" class="item__header">python configparser</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">프로그램의 중요한 옵션들을 저장하고 관리하기 위해 cfg나 ini 파일 등을 사용한다. 파이썬에서 configparse 패키지를 활용할 수 있다. configparse는 이런 파일들을 읽고, 쓸 수 있는 클래스를 제공한다.
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>python configparser</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="Edit on Github"
+            href="https://github.com/byungjin0826/byungjin0826.github.io/tree/master/_posts/2021-02-26-python_configparser.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="python configparser"><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=python%2C">python,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=configparser">configparser</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 26, 2021</span>
+            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-26T00:00:00+00:00">
+    <meta itemprop="keywords" content="python,,configparser"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-설정 파일은 아래 예시와 같이 작성된다.
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><p>프로그램의 중요한 옵션들을 저장하고 관리하기 위해 cfg나 ini 파일 등을 사용한다. 파이썬에서 configparse 패키지를 활용할 수 있다. configparse는 이런 파일들을 읽고, 쓸 수 있는 클래스를 제공한다.</p>
 
-[DEFAULT]
+<p>설정 파일은 아래 예시와 같이 작성된다.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>[DEFAULT]
 a = a
 b = b
 c = c
@@ -295,57 +308,71 @@ option1 = a
 option2 = b
 option3 = c
 option4 = d
+</code></pre></div></div>
 
+<p>설정 파일을 읽기 위해 ConfigParser의 인스턴스를 생성한다. ConfigParser는 read 메소드를 제공하며, 파일 경로를 입력하여 설정 파일을 읽어낸다.</p>
 
-설정 파일을 읽기 위해 ConfigParser의 인스턴스를 생성한다. ConfigParser는 read 메소드를 제공하며, 파일 경로를 입력하여 설정 파일을 읽어낸다.
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">configparse</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
 
-from configpa...</div><p><a href="/2021/02/26/python_configparser.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=python%2C">python,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=configparser">configparser</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 26, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-26T00:00:00+00:00">
-    <meta itemprop="keywords" content="python,,configparser"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/02/23/python_multiprocessing.html"><h2 itemprop="headline" class="item__header">python 병렬처리와 ray에 대하여</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">python 병렬처리와 ray를 쓰는 이유.
+<span class="n">parser</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">()</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="s">'{cfg_file_path}'</span><span class="p">)</span>
+</code></pre></div></div>
 
-병렬 처리는 멀티 스레드와 멀티 프로세싱의 두 가지 방법이 있다. 멀티 스레드는 프로세스를 여러 개의 조각(스레드)로 나누어 작업하는 방식이며, 멀티 프로세싱은 아예 여러 개의 프로세스로 동시에 처리하는 방식을 말한다. 두 가지의 장단점은 자원을 활용하는 방법의 차이에서 발생한다. 멀티 스레드는 stack 메모리를 제외한 다른 메모리를 공유한다. 따라서 성능은 좋지만 메모리 관리에 유의해야 한다. 잘못 사용하게 되면 경쟁 상태(race mode)라고 부르는 문제가 야기된다. 멀티 스레드로 성능 향상을 위해서는 멀티 코어가 필수적이다. 싱글 코어에서 스레드를 적용할 경우...</div><p><a href="/2021/02/23/python_multiprocessing.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=python%2C">python,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=multiprocessing%2C">multiprocessing,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=multithread%2C">multithread,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=ray">ray</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 23, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-23T00:00:00+00:00">
-    <meta itemprop="keywords" content="python,,multiprocessing,,multithread,,ray"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/02/19/about_create_blog.html"><h2 itemprop="headline" class="item__header">블로그를 시작하며</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">블로그를 시작하며
+<p>아래 코드를 활용하면 모든 설정 값을 key, value 형태로 읽어들일 수 있다.</p>
 
-블로그를 하면 좋겠다는 생각은 석사과정 중에 처음 했던 것 같다. 연구를 위한 자료 조사는 최종적으로는 논문이 중심이 되겠지만, 처음부터 그렇게 접근하는데는 어려움이 많다. 새로운 분야, 새로운 용어를 접할 때 가장 편하고 쉬운 방법은 위키피디아를 검색하거나 전문가들이 작성한 블로그를 살펴보는 것이다. 지금도 연구와 개발을 하면서 새로운 것 투성이다. 많은 전문가들이 블로그에 다양한 사람들이 다양한 관점으로 겪었던 어려움과 해결방안, 쉬운 활용예들을 작성한다. 그런 글들은 나와 같은 후발주자들에게 작성자의 의도 이상으로 많은 도움이 된다. 논문에서는 체계적이고 정확한 이론들을 학습하기에 용이하지...</div><p><a href="/2021/02/19/about_create_blog.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=daily">daily</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 19, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00">
-    <meta itemprop="keywords" content="daily"></div>
-      </article></div>
-</div><div class="layout--home"></div>
-<script>/*(function () {
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="n">parser</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">section</span><span class="p">:</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">parser</span><span class="p">[</span><span class="n">section</span><span class="p">].</span><span class="n">get</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+</code></pre></div></div>
 
-})();*/
+<p>또한 설정파일에 주석이 있는 경우에는 ConfigParser 클래스에 comment_prefix 파래미터를 입력하여 제거할 수 있다.</p>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">configparse</span> <span class="kn">import</span> <span class="n">ConfigParser</span>
+
+<span class="n">parser</span> <span class="o">=</span> <span class="n">ConfigParser</span><span class="p">(</span><span class="n">comment_prefix</span><span class="o">=</span><span class="p">[</span><span class="s">'#'</span><span class="p">,</span> <span class="s">';'</span><span class="p">])</span>
+<span class="n">parser</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="s">'{cfg_file_path}'</span><span class="p">)</span>
+</code></pre></div></div>
+
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-02-26T00:00:00+00:00"><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">Subscribe</a></div>
+</div><div class="article__license"><div class="license">
+    <p>This work is licensed under a <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> license.
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2021/02/23/python_multiprocessing.html">python 병렬처리와 ray에 대하여</a></div></div></div>
+
+</div>
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
+
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor d-print-none" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();
 </script>
-
-
-
 </div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
@@ -893,6 +920,68 @@ window.Lazyload.js([SOURCES.jquery, PAHTS.search_js], function() {
 /*(function () {
 
 })();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]
