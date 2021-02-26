@@ -1,3 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: http://byungjin0826.github.io/sitemap.xml
+
+Sitemap: https://byungjin0826.github.io/sitemap.xml
