@@ -12,11 +12,10 @@
 		
 	</script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>Home - byungjin0826의 블로그</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>이상탐지분석 - byungjin0826의 블로그</title>
 
-<meta name="description" content="byungjin0826의 블로그
-">
-<link rel="canonical" href="http://byungjin0826.github.io/"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="이상탐지는 정상이 아닌 데이터를 이상으로 분류하는 것을 말한다. 이상탐지는 많은 분야에서 다양한 목적으로 사용되고 있다. 분야나 목적에 따라 정상과 이상을 정의하는 기준이 다르다. 따라서 이상탐지에 대한 정의 또한 범용적으로 정의 내리기에는 무리가 있어 보인다. outlier, a...">
+<link rel="canonical" href="http://byungjin0826.github.io/2021/03/09/overview_of_anomaly_detection.html"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -266,7 +265,7 @@
 </head>
   <body>
     <div class="root" data-is-touch="false">
-      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport cell cell--auto">
+      <div class="layout--page js-page-root"><div class="page__main js-page-main page__viewport has-aside cell cell--auto">
 
       <div class="page__main-inner"><div class="page__header d-print-none"><header class="header"><div class="main">
       <div class="header__title">
@@ -285,21 +284,17 @@
   </header>
 </div><div class="page__content"><div class ="main"><div class="grid grid--reverse">
 
-              <div class="col-aside d-print-none js-col-aside"></div>
+              <div class="col-aside d-print-none js-col-aside"><aside class="page__aside js-page-aside"><div class="toc-aside js-toc-root"></div>
+</aside></div>
 
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>Home</h1></header><meta itemprop="headline" content="Home"><meta itemprop="author" content="Shin, Byungjin"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/03/09/overview_of_anomaly_detection.html"><h2 itemprop="headline" class="item__header">이상탐지분석</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">이상탐지는 정상이 아닌 데이터를 이상으로 분류하는 것을 말한다. 이상탐지는 많은 분야에서 다양한 목적으로 사용되고 있다. 분야나 목적에 따라 정상과 이상을 정의하는 기준이 다르다. 따라서 이상탐지에 대한 정의 또한 범용적으로 정의 내리기에는 무리가 있어 보인다. outlier, anomaly, abnormal, novel 등 다양한 용어가 쓰인다. 단어 간의 미묘한 차이가 있지만, 대체적으로는 outlier와 anomaly detection이 가장 많이 쓰인다. 이상에 대한 정의를 내린 예시를 들자면 다음과 같다.
-
-
-  
-    “다른 데이터와 눈에 띄게 멀리 있는 데이터”
-  
-  
-    “다른 나머지 데이터...</div><p><a href="/2021/03/09/overview_of_anomaly_detection.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>이상탐지분석</h1></header><span class="split-space">&nbsp;</span>
+          <a class="edit-on-github"
+            title="Edit on Github"
+            href="https://github.com/byungjin0826/byungjin0826.github.io/tree/master/_posts/2021-03-09-overview_of_anomaly_detection.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="이상탐지분석"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
                 href="/archive.html?tag=anomaly">anomaly</a>
             </li><li>
@@ -319,74 +314,88 @@
                 href="/archive.html?tag=overview">overview</a>
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Mar 09, 2021</span>
             </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-03-09T00:00:00+00:00">
-    <meta itemprop="keywords" content="anomaly,detection,,definition,,outlier,detection,,overview"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/02/26/python_configparser.html"><h2 itemprop="headline" class="item__header">python configparser</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">프로그램의 중요한 옵션들을 저장하고 관리하기 위해 cfg나 ini 파일 등을 사용한다. 파이썬에서 configparse 패키지를 활용할 수 있다. configparse는 이런 파일들을 읽고, 쓸 수 있는 클래스를 제공한다.
+    <meta itemprop="keywords" content="anomaly,detection,,definition,,outlier,detection,,overview"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
-설정 파일은 아래 예시와 같이 작성된다.
+<!-- end custom article top snippet -->
+<div class="article__content" itemprop="articleBody"><p>이상탐지는 정상이 아닌 데이터를 이상으로 분류하는 것을 말한다. 이상탐지는 많은 분야에서 다양한 목적으로 사용되고 있다. 분야나 목적에 따라 정상과 이상을 정의하는 기준이 다르다. 따라서 이상탐지에 대한 정의 또한 범용적으로 정의 내리기에는 무리가 있어 보인다. outlier, anomaly, abnormal, novel 등 다양한 용어가 쓰인다. 단어 간의 미묘한 차이가 있지만, 대체적으로는 outlier와 anomaly detection이 가장 많이 쓰인다. 이상에 대한 정의를 내린 예시를 들자면 다음과 같다.</p>
 
-[DEFAULT]
-a = a
-b = b
-c = c
+<ul>
+  <li>
+    <p>“다른 데이터와 눈에 띄게 멀리 있는 데이터”</p>
+  </li>
+  <li>
+    <p>“다른 나머지 데이터 셋과 균질하다고 보기 어려운 데이터”</p>
+  </li>
+</ul>
 
-[SECTION]
-option1 = a
-option2 = b
-option3 = c
-option4 = d
+<p>얼마나 멀리 떨어져있어야 눈에 띄게 멀고, 얼마나 달라야 균질하지 않은 것일까? 판단자에 따라 정상과 이상의 구분이 달라질 것이다. 아예 판단이 어려운 경우도 있을 수 있다. 명확한 판단 기준이 없어서 기존 데이터에서 정상과 이상을 구분하지 못하는 경우나, 이상이 발생하지 않았으나 미래의 이상을 알고 싶은 경우 등 보유하고 있는 데이터의 조건 또한 모두 다르다. 그러므로, 이상 탐지는 보유하고 있는 데이터에 따라 적용 방법이 구분된다. 보유 데이터 유형은 아래와 같이 크게 3가지로 구분된다.</p>
 
+<ul>
+  <li>정상과 이상에 대한 분류가 없는 경우: 비지도 학습(unsupervised learning)</li>
+  <li>정상과 이상에 대한 분류가 있는 경우: 지도 학습(supervised learning)</li>
+  <li>정상에 대한 분류만 있는 경우: 반지도 학습(semi-supervised learning)</li>
+</ul>
 
-설정 파일을 읽기 위해 ConfigParser의 인스턴스를 생성한다. ConfigParser는 read 메소드를 제공하며, 파일 경로를 입력하여 설정 파일을 읽어낸다.
+<p>정상과 이상에 대한 분류가 없는 경우에는 주로 비지도 학습 방법을 사용한다. 군집 분석(clustering), 밀도 추정(Density estimation), PCA 등의 방법들을 주로 사용한다. 지도 학습을 사용하는 경우에는 주로 분류 방법을 사용한다. 반지도 학습의 예에는 one-class SVM, Autoencoder 등이 있다. 학습의 난이도는 개인적으로 비지도&gt;반지도&gt;지도 순으로 높다고 생각한다. 그 이유는 학습된 모델의 성능을 평가하기가 까다롭다. 분류가 있는 경우에는 정확도, 재현율, 정밀도 등 성능 평가 지표가 많고, 계산이 간단하다. 반면에 비지도 학습은 분류값이 없어 앞서 언급한 성능 지표를 사용하는데 무리가 있다. Silhouette coefficient, Dunn Index 같은 지표로 평가하나 이상 탐지가 잘 되는지에 대해서는 알 수 없다.</p>
 
-from configpa...</div><p><a href="/2021/02/26/python_configparser.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=python%2C">python,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=configparser">configparser</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 26, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-26T00:00:00+00:00">
-    <meta itemprop="keywords" content="python,,configparser"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/02/23/python_multiprocessing.html"><h2 itemprop="headline" class="item__header">python 병렬처리와 ray에 대하여</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">python 병렬처리와 ray를 쓰는 이유.
+<p>또 다른 분류로는 통계적 모델을 사용하는지, 기계학습 모델을 사용하는 지 등으로 나눌 수 있다. 통계적인 방법 중에 가장 쉬운 방법은 정규 분포 등과 같이 잘 알려져 있는 분포를 추정하여 특정 유의확률 수준을 초과하는 값을 이상으로 처리하는 것이다. 딥러닝을 사용하는 방법 중에는 오토인코더를 사용하는 방법이 대표적이다. 오토인코더는 인코더와 디코더가 합쳐진 구조이다. 인코더의 역할은 데이터를 축소시키는 역할을 한다. 디코더는 축소된 데이터를 원본과 가깝게 복원시키는 것이 목표이다. 축소된 데이터를 복원하는 과정에서 정보가 손실된다. 이러한 구조를 이용하여 정상 데이터만을 학습할 경우 오토인코더는 적정 수준에서 정보가 손실되며, 이때 이상 정보를 제거하고 정상데이터와 가까운 값을 복원하게 된다. 따라서 원본과 오토인코더를 통해 복원된 데이터의 차이가 많을 경우 이상 데이터로 판단할 수 있게 된다.</p>
 
-병렬 처리는 멀티 스레드와 멀티 프로세싱의 두 가지 방법이 있다. 멀티 스레드는 프로세스를 여러 개의 조각(스레드)로 나누어 작업하는 방식이며, 멀티 프로세싱은 아예 여러 개의 프로세스로 동시에 처리하는 방식을 말한다. 두 가지의 장단점은 자원을 활용하는 방법의 차이에서 발생한다. 멀티 스레드는 stack 메모리를 제외한 다른 메모리를 공유한다. 따라서 성능은 좋지만 메모리 관리에 유의해야 한다. 잘못 사용하게 되면 경쟁 상태(race mode)라고 부르는 문제가 야기된다. 멀티 스레드로 성능 향상을 위해서는 멀티 코어가 필수적이다. 싱글 코어에서 스레드를 적용할 경우...</div><p><a href="/2021/02/23/python_multiprocessing.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=python%2C">python,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=multiprocessing%2C">multiprocessing,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=multithread%2C">multithread,</a>
-            </li><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=ray">ray</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 23, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-23T00:00:00+00:00">
-    <meta itemprop="keywords" content="python,,multiprocessing,,multithread,,ray"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/02/19/about_create_blog.html"><h2 itemprop="headline" class="item__header">블로그를 시작하며</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">블로그를 시작하며
+<p>지도 학습 외에 반지도와 비지도의 경우에는 크게 두가지 어려움이 있었다.</p>
 
-블로그를 하면 좋겠다는 생각은 석사과정 중에 처음 했던 것 같다. 연구를 위한 자료 조사는 최종적으로는 논문이 중심이 되겠지만, 처음부터 그렇게 접근하는데는 어려움이 많다. 새로운 분야, 새로운 용어를 접할 때 가장 편하고 쉬운 방법은 위키피디아를 검색하거나 전문가들이 작성한 블로그를 살펴보는 것이다. 지금도 연구와 개발을 하면서 새로운 것 투성이다. 많은 전문가들이 블로그에 다양한 사람들이 다양한 관점으로 겪었던 어려움과 해결방안, 쉬운 활용예들을 작성한다. 그런 글들은 나와 같은 후발주자들에게 작성자의 의도 이상으로 많은 도움이 된다. 논문에서는 체계적이고 정확한 이론들을 학습하기에 용이하지...</div><p><a href="/2021/02/19/about_create_blog.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=daily">daily</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 19, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00">
-    <meta itemprop="keywords" content="daily"></div>
-      </article></div>
-</div><div class="layout--home"></div>
-<script>/*(function () {
+<ul>
+  <li>얼마나 민감하게 이상을 평가할 것인가</li>
+  <li>정상 데이터의 변화가 생기는 경우 이상으로 봐야 할 것인가</li>
+</ul>
 
-})();*/
+<p>위의 예시와 같이 정규분포 상의 유의확률로 판별하거나 오토인코더를 사용하는 경우 모두 기준이 되는 값을 정해줘야 한다. 기준이 되는 값은 성능에 직접적인 영향을 주므로 이상을 감지하지 못했을 때의 리스크를 고려하여 섬세하게 결정해야 할 것이다. 항공기의 경우와 같이 결함이 초래하는 위험이 엄청나게 큰 경우 이상 감지가 자주되어 번거롭더라도 매번 확인하는 것이 안전할 것이다. 정상 데이터의 지속적인 변화로 인해 이상값이 점점 많아지는 경우에는 이를 이상으로 판단해야 할 것인지도 판단이 어려운 점인 것 같다.</p>
+
+<p>[참조 했던 문헌]</p>
+
+<ul>
+  <li>A survey of outlier detection methodologies</li>
+  <li>https://medium.com/daria-blog/머신러닝-기반의-이상-탐지-part-1-8d2fa0811059</li>
+</ul>
+
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-03-09T00:00:00+00:00"><!-- start custom article footer snippet -->
+
+<!-- end custom article footer snippet -->
+<div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">Subscribe</a></div>
+</div><div class="article__license"><div class="license">
+    <p>This work is licensed under a <a itemprop="license" rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">Attribution-NonCommercial 4.0 International</a> license.
+      <a rel="license" href="https://creativecommons.org/licenses/by-nc/4.0/">
+        <img alt="Attribution-NonCommercial 4.0 International" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" />
+      </a>
+    </p>
+  </div></div></footer>
+<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2021/02/26/python_configparser.html">python configparser</a></div></div></div>
+
+</div>
+
+<script>(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    $(function() {
+      var $this ,$scroll;
+      var $articleContent = $('.js-article-content');
+      var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+      var scroll = hasSidebar ? '.js-page-main' : 'html, body';
+      $scroll = $(scroll);
+
+      $articleContent.find('.highlight').each(function() {
+        $this = $(this);
+        $this.attr('data-lang', $this.find('code').attr('data-lang'));
+      });
+      $articleContent.find('h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]').each(function() {
+        $this = $(this);
+        $this.append($('<a class="anchor d-print-none" aria-hidden="true"></a>').html('<i class="fas fa-anchor"></i>'));
+      });
+      $articleContent.on('click', '.anchor', function() {
+        $scroll.scrollToAnchor('#' + $(this).parent().attr('id'), 400);
+      });
+    });
+  });
+})();
 </script>
-
-
-
 </div><section class="page__comments d-print-none"></section></article><!-- start custom main bottom snippet -->
 
 <!-- end custom main bottom snippet -->
@@ -804,6 +813,68 @@ from configpa...</div><p><a href="/2021/02/26/python_configparser.html">Read mor
 /*(function () {
 
 })();*/
+</script><script>
+  /* toc must before affix, since affix need to konw toc' height. */(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  var TOC_SELECTOR = window.TEXT_VARIABLES.site.toc.selectors;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window);
+    var $articleContent = $('.js-article-content');
+    var $tocRoot = $('.js-toc-root'), $col2 = $('.js-col-aside');
+    var toc;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+    var hasToc = $articleContent.find(TOC_SELECTOR).length > 0;
+
+    function disabled() {
+      return $col2.css('display') === 'none' || !hasToc;
+    }
+
+    tocDisabled = disabled();
+
+    toc = $tocRoot.toc({
+      selectors: TOC_SELECTOR,
+      container: $articleContent,
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      tocDisabled = disabled();
+      toc && toc.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+  });
+})();
+(function() {
+  var SOURCES = window.TEXT_VARIABLES.sources;
+  window.Lazyload.js(SOURCES.jquery, function() {
+    var $window = $(window), $pageFooter = $('.js-page-footer');
+    var $pageAside = $('.js-page-aside');
+    var affix;
+    var tocDisabled = false;
+    var hasSidebar = $('.js-page-root').hasClass('layout--page--sidebar');
+
+    affix = $pageAside.affix({
+      offsetBottom: $pageFooter.outerHeight(),
+      scrollTarget: hasSidebar ? '.js-page-main' : null,
+      scroller: hasSidebar ? '.js-page-main' : null,
+      scroll: hasSidebar ? $('.js-page-main').children() : null,
+      disabled: tocDisabled
+    });
+
+    $window.on('resize', window.throttle(function() {
+      affix && affix.setOptions({
+        disabled: tocDisabled
+      });
+    }, 100));
+
+    window.pageAsideAffix = affix;
+  });
+})();
 </script><script type="text/x-mathjax-config">
 	var _config = { tex2jax: {
 		inlineMath: [['$','$'], ['\\(','\\)']]

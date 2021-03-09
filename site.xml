@@ -4,6 +4,22 @@
         xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
+        <loc>http://byungjin0826.github.io/2021/03/09/overview_of_anomaly_detection.html.html</loc>
+        
+        <lastmod>2021-03-09T00:00:00+00:00</lastmod>
+        
+
+        
+        <changefreq>weekly</changefreq>
+        
+
+        
+        <priority>0.5</priority>
+        
+
+    </url>
+    
+    <url>
         <loc>http://byungjin0826.github.io/2021/02/26/python_configparser.html.html</loc>
         
         <lastmod>2021-02-26T00:00:00+00:00</lastmod>
