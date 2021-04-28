@@ -291,6 +291,96 @@
 
 <!-- end custom main top snippet -->
 <article itemscope itemtype="http://schema.org/WebPage"><header style="display:none;"><h1>Home</h1></header><meta itemprop="headline" content="Home"><meta itemprop="author" content="Shin, Byungjin"/><div class="js-article-content"><div class="layout--articles"><div class="article-list items items--divided"><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/2021/04/28/scaler.html"><h2 itemprop="headline" class="item__header">scaler, transformer, normalizer</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">Original data
+
+
+  seaborn “tips”
+
+
+import sns
+
+tips = sns.load_dataset('tips')
+tips_metric = tips.loc[:, ['total_bill', 'tip']]
+
+sns.jointplot(data=tips, x='total_bill', y='tip')
+
+
+Scaler
+
+
+  min-max scaler
+
+
+from sklearn.preprocessing import MinMaxScaler
+
+
+
+
+
+  standard scaler
+
+
+from sklearn.preprocessing import StandardScaler
+
+
+
+  robust scale...</div><p><a href="/2021/04/28/scaler.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=scaler%2C">scaler,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=transformer%2C">transformer,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=normalizer%2C">normalizer,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=data">data</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=preprocessing%2C">preprocessing,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=%EB%8D%B0%EC%9D%B4%ED%84%B0">데이터</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=%EC%A0%84%EC%B2%98%EB%A6%AC%2C">전처리,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=sci-kit">sci-kit</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=learn">learn</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Apr 28, 2021</span>
+            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-04-28T00:00:00+00:00">
+    <meta itemprop="keywords" content="scaler,,transformer,,normalizer,,data,preprocessing,,데이터,전처리,,sci-kit,learn"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
+          <header><a href="/2021/04/28/autoencoder.html"><h2 itemprop="headline" class="item__header">Autoencoder</h2></a></header>
+          <div class="item__description"><div class="article__content" itemprop="description articleBody">오토인코더(Autoencoder)
+
+오토인코더는 인공신경망을 활용한 비지도학습의 일종이다. 그림과 같이 오토인코더는 인코더와 디코더가 합쳐진 구조이다. 오토인코더에는 두 가지 주요한 특징이 있다. 첫번째 특징은 입력 데이터와 최대한 비슷하게 출력하도록 학습된다는 것이다. 학습 과정에서 별도의 라벨이나 타겟 변수가 필요없다. 입력 데이터 그 자체를 학습한다. 두번째 특징은 보틀넥 효과를 주기위하여 인코더의 출력차원을 입력데이터 차원보다 작게 한다는 것이다. 이러한 제약으로 인하여 인코더는 입력데이터의 특징을 효과적으로 추출할 수 있도록 학습된다. 인코더의 역할과 출력을 특징 추출(feature extraction),...</div><p><a href="/2021/04/28/autoencoder.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=autoencoder%2C">autoencoder,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=anomaly">anomaly</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=detection%2C">detection,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=%EC%98%A4%ED%86%A0%EC%9D%B8%EC%BD%94%EB%8D%94%2C">오토인코더,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=%EC%9D%B4%EC%83%81">이상</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=%ED%83%90%EC%A7%80">탐지</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Apr 28, 2021</span>
+            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-04-28T00:00:00+00:00">
+    <meta itemprop="keywords" content="autoencoder,,anomaly,detection,,오토인코더,,이상,탐지"></div>
+      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
           <header><a href="/2021/03/23/introduce_about_outlier_analysis.html"><h2 itemprop="headline" class="item__header">outlier analysis 관련 책 소개</h2></a></header>
           <div class="item__description"><div class="article__content" itemprop="description articleBody">논문 작성 중에 이상탐지와 관련된 좋은 서적을 발견하였다. springer에서 출판한 “Outlier Analysis”라는 책이다. 이 책에서는 이상 탐지에 대해서 전통적이고 통계적인 방법부터 최근 연구까지 다루고 있으며, 관련 연구들도 레퍼런스로 제공하고 있다. 연구 중인 오토 인코더에 관한 내용은 다소 비중이 작게 다루고 있으나, 이론적인 기초를 세우기에는 충분한 내용을 담고 있다. 많은 종류에 모델들을 다루고 있어 깊이가 다소 없다고 느껴질 수는 있다. 이론만을 다루기 때문에 샘플 코드는 제공되지 않는다. 그러나 다른 모델들과의 차이점 비교나 기존 연구의 문제점/개선 방법 등을 쉽게 파악하기에 좋다. 적용이 ...</div><p><a href="/2021/03/23/introduce_about_outlier_analysis.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
@@ -439,18 +529,20 @@ from configpa...</div><p><a href="/2021/02/26/python_configparser.html">Read mor
             </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 23, 2021</span>
             </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-23T00:00:00+00:00">
     <meta itemprop="keywords" content="python,,multiprocessing,,multithread,,ray"></div>
-      </article><article class="item" itemscope itemtype="http://schema.org/BlogPosting"><div class="item__content">
-          <header><a href="/2021/02/19/about_create_blog.html"><h2 itemprop="headline" class="item__header">블로그를 시작하며</h2></a></header>
-          <div class="item__description"><div class="article__content" itemprop="description articleBody">블로그를 시작하며
-
-블로그를 하면 좋겠다는 생각은 석사과정 중에 처음 했던 것 같다. 연구를 위한 자료 조사는 최종적으로는 논문이 중심이 되겠지만, 처음부터 그렇게 접근하는데는 어려움이 많다. 새로운 분야, 새로운 용어를 접할 때 가장 편하고 쉬운 방법은 위키피디아를 검색하거나 전문가들이 작성한 블로그를 살펴보는 것이다. 지금도 연구와 개발을 하면서 새로운 것 투성이다. 많은 전문가들이 블로그에 다양한 사람들이 다양한 관점으로 겪었던 어려움과 해결방안, 쉬운 활용예들을 작성한다. 그런 글들은 나와 같은 후발주자들에게 작성자의 의도 이상으로 많은 도움이 된다. 논문에서는 체계적이고 정확한 이론들을 학습하기에 용이하지...</div><p><a href="/2021/02/19/about_create_blog.html">Read more</a></p></div><div class="article__info clearfix"><ul class="left-col menu"><li>
-              <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=daily">daily</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Feb 19, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-02-19T00:00:00+00:00">
-    <meta itemprop="keywords" content="daily"></div>
       </article></div>
-</div><div class="layout--home"></div>
+</div><div class="layout--home"><div class="pagination"><p>9 post articles, 2 pages.</p>
+    <div class="pagination__menu">
+      <ul class="menu menu--nowrap"><li><div class="button button--secondary button--circle disabled">
+            <i class="fas fa-angle-left"></i>
+          </div></li><li>
+              <div class="button button--primary button--circle focus"><span>1</span></div>
+            </li><li>
+                <a class="button button--secondary button--circle" href="/page2"><span>2</span></a>
+              </li><li><a class="button button--secondary button--circle" href="/page2">
+            <i class="fas fa-angle-right"></i>
+          </a></li></ul>
+    </div>
+  </div></div>
 <script>/*(function () {
 
 })();*/

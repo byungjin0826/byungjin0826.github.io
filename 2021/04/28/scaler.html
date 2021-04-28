@@ -12,10 +12,10 @@
 		
 	</script><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>outlier analysis 관련 책 소개 - byungjin0826의 블로그</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"><title>scaler, transformer, normalizer - byungjin0826의 블로그</title>
 
-<meta name="description" content="논문 작성 중에 이상탐지와 관련된 좋은 서적을 발견하였다. springer에서 출판한 “Outlier Analysis”라는 책이다. 이 책에서는 이상 탐지에 대해서 전통적이고 통계적인 방법부터 최근 연구까지 다루고 있으며, 관련 연구들도 레퍼런스로 제공하고 있다. 연구 중인 오토 ...">
-<link rel="canonical" href="http://byungjin0826.github.io/2021/03/23/introduce_about_outlier_analysis.html"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
+<meta name="description" content="Original data  seaborn “tips”import snstips = sns.load_dataset('tips')tips_metric = tips.loc[:, ['total_bill', 'tip']]sns.jointplot(data=tips, x='total_bill'...">
+<link rel="canonical" href="http://byungjin0826.github.io/2021/04/28/scaler.html"><link rel="alternate" type="application/rss+xml" title="byungjin0826의 블로그" href="/feed.xml"><!-- start favicons snippet, use https://realfavicongenerator.net/ --><link rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png"><link rel="manifest" href="/assets/site.webmanifest"><link rel="mask-icon" href="/assets/safari-pinned-tab.svg" color="#fc4d50"><link rel="shortcut icon" href="/assets/favicon.ico">
 
 <meta name="msapplication-TileColor" content="#ffc40d"><meta name="msapplication-config" content="/assets/browserconfig.xml">
 
@@ -290,49 +290,112 @@
               <div class="col-main cell cell--auto"><!-- start custom main top snippet -->
 
 <!-- end custom main top snippet -->
-<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>outlier analysis 관련 책 소개</h1></header><span class="split-space">&nbsp;</span>
+<article itemscope itemtype="http://schema.org/Article"><div class="article__header"><header><h1>scaler, transformer, normalizer</h1></header><span class="split-space">&nbsp;</span>
           <a class="edit-on-github"
             title="Edit on Github"
-            href="https://github.com/byungjin0826/byungjin0826.github.io/tree/master/_posts/2021-03-23-introduce_about_outlier_analysis.md">
-            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="outlier analysis 관련 책 소개"><div class="article__info clearfix"><ul class="left-col menu"><li>
+            href="https://github.com/byungjin0826/byungjin0826.github.io/tree/master/_posts/2021-04-28-scaler.md">
+            <i class="far fa-edit"></i></a></div><meta itemprop="headline" content="scaler, transformer, normalizer"><div class="article__info clearfix"><ul class="left-col menu"><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=book">book</a>
+                href="/archive.html?tag=scaler%2C">scaler,</a>
             </li><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=review%2C">review,</a>
+                href="/archive.html?tag=transformer%2C">transformer,</a>
             </li><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=outlier">outlier</a>
+                href="/archive.html?tag=normalizer%2C">normalizer,</a>
             </li><li>
               <a class="button button--secondary button--pill button--sm"
-                href="/archive.html?tag=analysis">analysis</a>
-            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Mar 23, 2021</span>
-            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-03-23T00:00:00+00:00">
-    <meta itemprop="keywords" content="book,review,,outlier,analysis"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
+                href="/archive.html?tag=data">data</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=preprocessing%2C">preprocessing,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=%EB%8D%B0%EC%9D%B4%ED%84%B0">데이터</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=%EC%A0%84%EC%B2%98%EB%A6%AC%2C">전처리,</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=sci-kit">sci-kit</a>
+            </li><li>
+              <a class="button button--secondary button--pill button--sm"
+                href="/archive.html?tag=learn">learn</a>
+            </li></ul><ul class="right-col menu"><li><i class="far fa-calendar-alt"></i> <span>Apr 28, 2021</span>
+            </li></ul></div><meta itemprop="author" content="Shin, Byungjin"/><meta itemprop="datePublished" content="2021-04-28T00:00:00+00:00">
+    <meta itemprop="keywords" content="scaler,,transformer,,normalizer,,data,preprocessing,,데이터,전처리,,sci-kit,learn"><div class="js-article-content"><div class="layout--article"><!-- start custom article top snippet -->
 
 <!-- end custom article top snippet -->
-<div class="article__content" itemprop="articleBody"><p>논문 작성 중에 이상탐지와 관련된 좋은 서적을 발견하였다. springer에서 출판한 “Outlier Analysis”라는 책이다. 이 책에서는 이상 탐지에 대해서 전통적이고 통계적인 방법부터 최근 연구까지 다루고 있으며, 관련 연구들도 레퍼런스로 제공하고 있다. 연구 중인 오토 인코더에 관한 내용은 다소 비중이 작게 다루고 있으나, 이론적인 기초를 세우기에는 충분한 내용을 담고 있다. 많은 종류에 모델들을 다루고 있어 깊이가 다소 없다고 느껴질 수는 있다. 이론만을 다루기 때문에 샘플 코드는 제공되지 않는다. 그러나 다른 모델들과의 차이점 비교나 기존 연구의 문제점/개선 방법 등을 쉽게 파악하기에 좋다. 적용이 필요한 데이터의 특징에 따라 이상탐지 방법의 차이가 많이 발생하는데 해당 부분도 많은 부분을 차지하고 있다. 전체적인 목차는 아래와 같다.</p>
+<div class="article__content" itemprop="articleBody"><h2 id="original-data">Original data</h2>
 
 <ul>
-  <li>An introduction to oulier analysis</li>
-  <li>Probabilistic models for outlier detection</li>
-  <li>Linear models for outlier detection</li>
-  <li>Proximity based outlier detection</li>
-  <li>High-dimensional outlier detection</li>
-  <li>Outlier ensembles</li>
-  <li>Supervised outlier detection</li>
-  <li>Categorical, text and mixed attribute data</li>
-  <li>Time series and streaming outlier detection</li>
-  <li>Outlier detection in discrete sequences</li>
-  <li>Spatial outlier detection</li>
-  <li>Outlier detection in Graphs and networks</li>
-  <li>Applications of outlier analysis</li>
+  <li>seaborn “tips”</li>
 </ul>
 
-<p>총 13장으로 구성되어있으며, 시계열 자료에 대해 2장으로 꽤 많은 부분을 차지 하고 있다. 적용사례도 정리 되어있으며, 총 600여건의 참고 문헌을 활용하여 작성되어있다.</p>
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">import</span> <span class="nn">sns</span>
 
-<p>이상탐지에 대해 입문하면서 기초를 탄탄히 하고 싶다면, 해당 논문을 참조하면 좋을 것 같다. 기계학습과 딥러닝에 대해서 기초가 조금 있다면 이해가 더욱 빠를 것 같다.</p>
-</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-03-23T00:00:00+00:00"><!-- start custom article footer snippet -->
+<span class="n">tips</span> <span class="o">=</span> <span class="n">sns</span><span class="p">.</span><span class="n">load_dataset</span><span class="p">(</span><span class="s">'tips'</span><span class="p">)</span>
+<span class="n">tips_metric</span> <span class="o">=</span> <span class="n">tips</span><span class="p">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s">'total_bill'</span><span class="p">,</span> <span class="s">'tip'</span><span class="p">]]</span>
+
+<span class="n">sns</span><span class="p">.</span><span class="n">jointplot</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tips</span><span class="p">,</span> <span class="n">x</span><span class="o">=</span><span class="s">'total_bill'</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s">'tip'</span><span class="p">)</span>
+</code></pre></div></div>
+
+<h2 id="scaler">Scaler</h2>
+
+<ul>
+  <li>min-max scaler</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+
+
+</code></pre></div></div>
+
+<ul>
+  <li>standard scaler</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+</code></pre></div></div>
+
+<ul>
+  <li>robust scaler</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">RobustScaler</span>
+</code></pre></div></div>
+
+<ul>
+  <li>maxabs scaler</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MaxAbsScaler</span>
+</code></pre></div></div>
+
+<h2 id="transformer--normalizer">Transformer &amp; Normalizer</h2>
+
+<ul>
+  <li>power transformer</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">PowerTransformer</span>
+</code></pre></div></div>
+
+<ul>
+  <li>quantile transformer</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">QuantileTransformer</span>
+</code></pre></div></div>
+
+<ul>
+  <li>normalizer</li>
+</ul>
+
+<div class="language-python highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">Normalizer</span>
+</code></pre></div></div>
+
+</div><section class="article__sharing d-print-none"></section><div class="d-print-none"><footer class="article__footer"><meta itemprop="dateModified" content="2021-04-28T00:00:00+00:00"><!-- start custom article footer snippet -->
 
 <!-- end custom article footer snippet -->
 <div class="article__subscribe"><div class="subscribe"><i class="fas fa-rss"></i> <a type="application/rss+xml" href="/feed.xml">Subscribe</a></div>
@@ -343,7 +406,7 @@
       </a>
     </p>
   </div></div></footer>
-<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2021/03/18/quentions_for_interview_related_data_science.html">인터뷰 답변 정리</a></div><div class="next"><span>NEXT</span><a href="/2021/04/28/autoencoder.html">Autoencoder</a></div></div></div>
+<div class="article__section-navigator clearfix"><div class="previous"><span>PREVIOUS</span><a href="/2021/04/28/autoencoder.html">Autoencoder</a></div></div></div>
 
 </div>
 
