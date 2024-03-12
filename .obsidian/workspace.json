@@ -1,0 +1,157 @@
+{
+  "main": {
+    "id": "41399c5eb6beae85",
+    "type": "split",
+    "children": [
+      {
+        "id": "f174d6dbb35a4d8f",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "25181fa7f89cfa88",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.mdx",
+                "mode": "source",
+                "source": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "fd48e0b3c5722f6c",
+    "type": "split",
+    "children": [
+      {
+        "id": "8b2e9d5ce0b474a9",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "95217858ebf6419c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d3ee631256b0da52",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "a878758860dd13ba",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "right": {
+    "id": "df8e631355c68f75",
+    "type": "split",
+    "children": [
+      {
+        "id": "b2fbc390a565101c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "120cfdb75b2d36d6",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.mdx",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "9106c345b0f15909",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.mdx",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f10e33dbab17d075",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "cbe88277c79d72eb",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.mdx"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "25181fa7f89cfa88",
+  "lastOpenFiles": [
+    "data/blog/블로그/블로그 개설.mdx",
+    "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.mdx",
+    "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.md",
+    "data/blog/세부, 보홀 여행"
+  ]
+}
