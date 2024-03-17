@@ -31,6 +31,7 @@ export const generateStaticParams = async () => {
 }
 
 export default function TagPage({ params }: { params: { tag: string } }) {
+  // const tag = decodeURI(params.tag)
   const tag = decodeURI(params.tag)
   // Capitalize first letter and convert space to dash
   const title = tag[0].toUpperCase() + tag.split(' ').join('-').slice(1)

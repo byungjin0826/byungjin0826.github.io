@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "f174d6dbb35a4d8f",
+        "id": "0d2d8d9aea058d6e",
         "type": "tabs",
         "children": [
           {
-            "id": "25181fa7f89cfa88",
+            "id": "bc9e43434c72769a",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "faq/customize-kbar-search.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -65,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "df8e631355c68f75",
@@ -82,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "faq/customize-kbar-search.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "faq/customize-kbar-search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -119,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "faq/customize-kbar-search.md"
+              }
             }
           }
         ]
@@ -139,19 +146,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "25181fa7f89cfa88",
+  "active": "bc9e43434c72769a",
   "lastOpenFiles": [
-    "out/tags/%EC%8A%A4%EC%BF%A0%EB%B2%84%EB%8B%A4%EC%9D%B4%EB%B9%99.txt",
-    "out/tags/%ED%95%84%EB%A6%AC%ED%95%80.txt",
-    "out/tags/%EC%84%B8%EB%B6%80.txt",
-    "out/tags/%ED%95%B4%EC%99%B8%EC%97%AC%ED%96%89.txt",
-    "out/tags/%EB%B3%B4%ED%99%80.txt",
-    "out/tags/%EC%8A%A4%EC%BF%A0%EB%B2%84%EB%8B%A4%EC%9D%B4%EB%B9%99.html",
-    "out/tags/%ED%95%84%EB%A6%AC%ED%95%80.html",
-    "out/tags/%EC%84%B8%EB%B6%80.html",
-    "out/tags/%ED%95%B4%EC%99%B8%EC%97%AC%ED%96%89.html",
-    "out/tags/%EB%B3%B4%ED%99%80.html",
-    "out/_next/static/css/b8544fc33a7a7845.css",
+    "data/authors/default.mdx",
+    "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
+    "data/logo.svg",
+    "out/_next/static/9uVTiCQPhp40K8Tany_Ea/_ssgManifest.js",
+    "out/_next/static/9uVTiCQPhp40K8Tany_Ea/_buildManifest.js",
+    "out/_next/static/9uVTiCQPhp40K8Tany_Ea",
+    "out/_next/9uVTiCQPhp40K8Tany_Ea",
+    "out/_next/static/ae3OLzkKYKfJygIz2fcES/_ssgManifest.js",
+    "out/_next/static/ae3OLzkKYKfJygIz2fcES/_buildManifest.js",
+    "out/_next/static/ae3OLzkKYKfJygIz2fcES",
+    "out/_next/ae3OLzkKYKfJygIz2fcES",
+    "out/_next/static/chunks/app/tags/page-d17d75d7f6d80cdd.js",
     "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.md"
   ]
 }
