@@ -13,13 +13,26 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "faq/customize-kbar-search.md",
+                "file": "data/blog/블로그/블로그 개설.mdx",
                 "mode": "source",
-                "source": false
+                "source": true
+              }
+            }
+          },
+          {
+            "id": "4e0333f5ad8582c2",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
+                "mode": "source",
+                "source": true
               }
             }
           }
-        ]
+        ],
+        "currentTab": 1
       }
     ],
     "direction": "vertical"
@@ -85,7 +98,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "faq/customize-kbar-search.md",
+                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +115,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "faq/customize-kbar-search.md",
+                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +138,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "faq/customize-kbar-search.md"
+                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md"
               }
             }
           }
@@ -146,8 +159,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "bc9e43434c72769a",
+  "active": "4e0333f5ad8582c2",
   "lastOpenFiles": [
+    "data/blog/블로그/블로그 개설.mdx",
+    "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
+    "faq/customize-kbar-search.md",
     "data/authors/default.mdx",
     "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
     "data/logo.svg",
@@ -158,8 +174,6 @@
     "out/_next/static/ae3OLzkKYKfJygIz2fcES/_ssgManifest.js",
     "out/_next/static/ae3OLzkKYKfJygIz2fcES/_buildManifest.js",
     "out/_next/static/ae3OLzkKYKfJygIz2fcES",
-    "out/_next/ae3OLzkKYKfJygIz2fcES",
-    "out/_next/static/chunks/app/tags/page-d17d75d7f6d80cdd.js",
     "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.md"
   ]
 }
