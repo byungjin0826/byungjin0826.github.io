@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "b7b30a56fc59705a",
+        "id": "7c7142039aa58f9c",
         "type": "tabs",
         "children": [
           {
-            "id": "c11fbf35a02a5e86",
+            "id": "708c05a5840ff38d",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -146,10 +146,12 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "c11fbf35a02a5e86",
+  "active": "708c05a5840ff38d",
   "lastOpenFiles": [
-    "public/static/images/필리핀 스쿠버 다이빙 여행/alona beach.jpeg",
+    "public/static/images/logo.png",
+    "public/static/images/\bbohol/alona-beach.jpeg",
     "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
+    "public/static/images/필리핀 스쿠버 다이빙 여행/alona beach.jpeg",
     "public/static/images/필리핀 스쿠버 다이빙 여행/Deepper dive shop.jpeg",
     "README.md",
     "public/static/images/필리핀 스쿠버 다이빙 여행",
