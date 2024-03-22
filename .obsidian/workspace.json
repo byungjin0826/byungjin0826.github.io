@@ -4,35 +4,22 @@
     "type": "split",
     "children": [
       {
-        "id": "0d2d8d9aea058d6e",
+        "id": "b7b30a56fc59705a",
         "type": "tabs",
         "children": [
           {
-            "id": "bc9e43434c72769a",
+            "id": "c11fbf35a02a5e86",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "data/blog/블로그/블로그 개설.mdx",
+                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
                 "mode": "source",
-                "source": true
-              }
-            }
-          },
-          {
-            "id": "4e0333f5ad8582c2",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
-                "mode": "source",
-                "source": true
+                "source": false
               }
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -98,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
+                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -115,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
+                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -138,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md"
+                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx"
               }
             }
           }
@@ -159,21 +146,24 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "4e0333f5ad8582c2",
+  "active": "c11fbf35a02a5e86",
   "lastOpenFiles": [
+    "public/static/images/필리핀 스쿠버 다이빙 여행/alona beach.jpeg",
+    "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
+    "public/static/images/필리핀 스쿠버 다이빙 여행/Deepper dive shop.jpeg",
+    "README.md",
+    "public/static/images/필리핀 스쿠버 다이빙 여행",
     "data/blog/블로그/블로그 개설.mdx",
     "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
+    "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.mdx",
     "faq/customize-kbar-search.md",
     "data/authors/default.mdx",
-    "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
     "data/logo.svg",
     "out/_next/static/9uVTiCQPhp40K8Tany_Ea/_ssgManifest.js",
     "out/_next/static/9uVTiCQPhp40K8Tany_Ea/_buildManifest.js",
     "out/_next/static/9uVTiCQPhp40K8Tany_Ea",
     "out/_next/9uVTiCQPhp40K8Tany_Ea",
     "out/_next/static/ae3OLzkKYKfJygIz2fcES/_ssgManifest.js",
-    "out/_next/static/ae3OLzkKYKfJygIz2fcES/_buildManifest.js",
-    "out/_next/static/ae3OLzkKYKfJygIz2fcES",
     "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.md"
   ]
 }
