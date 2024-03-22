@@ -138,8 +138,11 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "708c05a5840ff38d",
+  "active": "95217858ebf6419c",
   "lastOpenFiles": [
+    "data/blog/cs182/inductive-bias.mdx",
+    "data/blog/cs182/inductive-bias",
+    "data/blog/cs182",
     "data/blog/cebu-bohol/cebu-bohol.mdx",
     "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
     "data/blog/cebu-bohol/세부 보홀 여행 후기.mdx",
@@ -156,11 +159,8 @@
     "public/static/images/필리핀 스쿠버 다이빙 여행/Deepper dive shop.jpeg",
     "README.md",
     "public/static/images/필리핀 스쿠버 다이빙 여행",
-    "data/blog/블로그/블로그 개설.mdx",
     "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
-    "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.mdx",
     "faq/customize-kbar-search.md",
-    "data/authors/default.mdx",
     "data/logo.svg",
     "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.md"
   ]
