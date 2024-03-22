@@ -11,12 +11,8 @@
             "id": "708c05a5840ff38d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx"
-              }
+              "state": {}
             }
           }
         ]
@@ -148,13 +140,18 @@
   },
   "active": "708c05a5840ff38d",
   "lastOpenFiles": [
+    "data/blog/cebu-bohol/cebu-bohol.mdx",
+    "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
+    "data/blog/cebu-bohol/세부 보홀 여행 후기.mdx",
+    "data/blog/cebu-bohol",
+    "data/blog/블로그/start-blogging.mdx",
+    "data/blog/블로그/google-serach-problem.mdx",
     "public/static/images/bohol/alona.jpeg",
     "public/static/images/bohol/Deepper dive shop.jpeg",
     "public/static/images/bohol",
     "public/static/images/\bbohol/alona.jpeg",
     "public/static/images/logo.png",
     "public/static/images/\bbohol/alona-beach.jpeg",
-    "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
     "public/static/images/필리핀 스쿠버 다이빙 여행/alona beach.jpeg",
     "public/static/images/필리핀 스쿠버 다이빙 여행/Deepper dive shop.jpeg",
     "README.md",
@@ -165,10 +162,6 @@
     "faq/customize-kbar-search.md",
     "data/authors/default.mdx",
     "data/logo.svg",
-    "out/_next/static/9uVTiCQPhp40K8Tany_Ea/_ssgManifest.js",
-    "out/_next/static/9uVTiCQPhp40K8Tany_Ea/_buildManifest.js",
-    "out/_next/static/9uVTiCQPhp40K8Tany_Ea",
-    "out/_next/9uVTiCQPhp40K8Tany_Ea",
     "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.md"
   ]
 }
