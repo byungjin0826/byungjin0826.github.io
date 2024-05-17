@@ -4,27 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "7c7142039aa58f9c",
+        "id": "f3bf28bbe5299277",
         "type": "tabs",
         "children": [
           {
-            "id": "708c05a5840ff38d",
+            "id": "90c77e7fab3cc696",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "data/blog/ubuntu/ubuntu-low-memory.md",
+                "file": "data/blog/cs182/from-rnn-to-gpt.md",
                 "mode": "source",
-                "source": true
+                "source": false
               }
-            }
-          },
-          {
-            "id": "c48cd492053c24cf",
-            "type": "leaf",
-            "state": {
-              "type": "empty",
-              "state": {}
             }
           }
         ]
@@ -77,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "right": {
     "id": "df8e631355c68f75",
@@ -94,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "data/blog/ubuntu/ubuntu-low-memory.md",
+                "file": "data/blog/cs182/from-rnn-to-gpt.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "data/blog/ubuntu/ubuntu-low-memory.md",
+                "file": "data/blog/cs182/from-rnn-to-gpt.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "data/blog/ubuntu/ubuntu-low-memory.md"
+                "file": "data/blog/cs182/from-rnn-to-gpt.md"
               }
             }
           }
@@ -155,23 +146,29 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "708c05a5840ff38d",
+  "active": "90c77e7fab3cc696",
   "lastOpenFiles": [
-    "data/blog/italy-egypt/travel-preparation-egypt.mdx.md",
+    "public/static/images/cs182/lstm-cell-structure.png",
+    "public/static/images/Untitled",
+    "Pasted image 20240512175801.png",
+    "data/blog/cs182/from-rnn-to-gpt.md",
     "data/blog/cs182/inductive-bias.mdx",
-    "data/blog/cebu-bohol/cebu-bohol.mdx",
+    "data/blog/python-packages/mlflow.md",
+    "data/blog/python-packages",
     "data/blog/블로그/start-blogging.mdx",
     "data/blog/블로그/google-serach-problem.mdx",
+    "public/static/images/cs182/summary-from-rnn-to-gpt.png",
+    "public/static/images/cs182",
+    "data/blog/italy-egypt/travel-preparation-italy.mdx.md",
+    "data/blog/italy-egypt/travel-preparation-egypt.mdx.md",
+    "data/blog/italy-egypt/travel-preparation-egypt.md",
     "data/blog/ubuntu/ubuntu-low-memory.md",
+    "data/blog/cebu-bohol/cebu-bohol.mdx",
     "data/blog/ubuntu",
     "data/blog/italy-egypt/egypt.md",
-    "data/blog/italy-egypt/travel-preparation-egypt.md",
     "data/blog/italy-egypt/이집트 여행 준비.md",
     "data/blog/italy-egypt",
     "data/blog/cs182/inductive-bias",
-    "data/blog/cs182",
-    "data/blog/세부 보홀 여행/세부 보홀 여행 후기.mdx",
-    "data/blog/cebu-bohol/세부 보홀 여행 후기.mdx",
     "public/static/images/bohol/alona.jpeg",
     "public/static/images/bohol/Deepper dive shop.jpeg",
     "public/static/images/\bbohol/alona.jpeg",
@@ -182,7 +179,6 @@
     "README.md",
     "data/blog/블로그/구글 검색에 노출되지 않는 문제 해결.md",
     "faq/customize-kbar-search.md",
-    "data/logo.svg",
     "data/blog/세부, 보홀 여행/세부, 보홀 여행 후기.md"
   ]
 }
