@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "d193f743b7a284e5",
+        "id": "74221a25955b6b59",
         "type": "tabs",
         "children": [
           {
-            "id": "83e7ad3bf8ce282f",
+            "id": "63d898686265a439",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "data/blog/cs182/from-rnn-to-gpt.mdx",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "data/blog/cs182/from-rnn-to-gpt.mdx",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "data/blog/cs182/from-rnn-to-gpt.mdx",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "data/blog/cs182/from-rnn-to-gpt.mdx"
-              }
+              "state": {}
             }
           }
         ]
@@ -146,10 +138,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "95217858ebf6419c",
+  "active": "63d898686265a439",
   "lastOpenFiles": [
-    "data/blog/cs182/inductive-bias.mdx",
     "data/blog/cs182/from-rnn-to-gpt.mdx",
+    "data/blog/cs182/inductive-bias.mdx",
     "public/static/images/twitter-card.png",
     "public/static/images/time-machine.jpg",
     "public/static/images/sparrowhawk-avatar.jpg",
