@@ -10,6 +10,8 @@ import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
+import { GA } from 'pliny/analytics/GoogleAnalytics'
+
 
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
@@ -88,6 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </SectionContainer>
         </ThemeProviders>
       </body>
+      <GA googleAnalyticsId='G-BFHPHJWS4J' />
     </html>
   )
 }

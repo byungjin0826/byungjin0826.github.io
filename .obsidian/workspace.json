@@ -138,8 +138,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "63d898686265a439",
+  "active": "95217858ebf6419c",
   "lastOpenFiles": [
+    "data/blog/paper-review/anomaly-transformer.mdx",
+    "data/blog/paper-review",
+    "data/blog/methodology/anomaly-detection.mdx",
+    "data/blog/methodology/anomaly-detection",
+    "data/blog/methodology",
     "data/blog/cs182/from-rnn-to-gpt.mdx",
     "data/blog/cs182/inductive-bias.mdx",
     "public/static/images/twitter-card.png",
@@ -159,10 +164,6 @@
     "data/blog/cebu-bohol/cebu-bohol.mdx",
     "public/static/images/Untitled",
     "data/blog/python-packages/mlflow.md",
-    "data/blog/python-packages",
-    "data/blog/블로그/start-blogging.mdx",
-    "data/blog/블로그/google-serach-problem.mdx",
-    "public/static/images/cs182",
     "data/blog/italy-egypt/travel-preparation-italy.mdx.md",
     "data/blog/italy-egypt/travel-preparation-egypt.mdx.md",
     "data/blog/italy-egypt/travel-preparation-egypt.md",
