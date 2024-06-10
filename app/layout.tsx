@@ -88,9 +88,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <Footer />
             </div>
           </SectionContainer>
+          <GA googleAnalyticsId="G-BFHPHJWS4J" />
         </ThemeProviders>
       </body>
-      <GA googleAnalyticsId="G-BFHPHJWS4J"/>
     </html>
   )
 }
