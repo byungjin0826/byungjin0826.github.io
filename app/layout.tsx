@@ -90,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </SectionContainer>
         </ThemeProviders>
       </body>
-      <GA googleAnalyticsId='G-BFHPHJWS4J' />
+      <GA googleAnalyticsId="G-BFHPHJWS4J"/>
     </html>
   )
 }
