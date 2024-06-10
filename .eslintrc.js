@@ -23,7 +23,7 @@ module.exports = {
   },
   rules: {
     // 'prettier/prettier': 'error',
-    "prettier/prettier": ["error", { "endOfLine": "auto" }],
+    "prettier/prettier": ["error", { endOfLine: "auto" }],
     'react/react-in-jsx-scope': 'off',
     'jsx-a11y/anchor-is-valid': [
       'error',
