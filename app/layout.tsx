@@ -12,7 +12,6 @@ import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
 import { GA } from 'pliny/analytics/GoogleAnalytics'
 
-
 const space_grotesk = Space_Grotesk({
   subsets: ['latin'],
   display: 'swap',
