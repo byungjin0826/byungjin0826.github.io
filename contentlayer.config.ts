@@ -111,7 +111,7 @@ export const Blog = defineDocumentType(() => ({
 }))
 
 export const BlogMD = defineDocumentType(() => ({
-  name: 'Blog',
+  name: 'BlogMD',
   filePathPattern: 'blog/**/*.md',
   contentType: 'markdown',
   fields: {
