@@ -1,5 +1,5 @@
 ---
-title: 딥러닝과 머신러닝의 차이, 귀납적 편향
+title: 딥러닝과 귀납적 편향
 date: 2024-03-22
 tags:
   - machine learning
@@ -8,7 +8,7 @@ tags:
   - learning bias
   - cs182
 draft: false
-summary: "귀납적 편향에 대하여"
+summary: "머신러닝·딥러닝에서 귀납적 편향(inductive bias)이 무엇이고 왜 필요한지, 그리고 모델이 발전하며 그 편향이 어떻게 줄어드는지 cs182 스터디를 토대로 정리했다."
 type: Blog
 images: []
 ---
@@ -41,12 +41,14 @@ cs182 강의를 듣고 함께 들은 내용을 복습하며 의견을 나누는 
 강의에서는 귀납적 편향을 완전히 배제하는 것은 어렵다고 한다.
 하지만 최대한 줄일 수는 있을 것이다.
 
+다만 여기서 "줄인다"는 것이 편향을 완전히 없앤다는 뜻은 아니다. 딥러닝 모델도 저마다 고유한 귀납적 편향을 가진다 — 예를 들어 CNN은 지역성(locality)과 이동 불변성, RNN은 순차성을 구조 자체에 내장하고 있다. 정확히는 사람이 손으로 넣어주던 가정(feature engineering)을 모델의 구조적 편향으로 대체·완화하는 것에 가깝다.
+
 # 딥러닝 모델 발전 과정에서의 귀납적 편향 제거
 
 예전에 Mask R-CNN과 관련된 학습을 하였다.
 이것과 관련해서 알고리즘의 발전 과정을 간단하게 보면 아래와 같다.
 
-FCN > R-CNN > Fast R-CNN > Faster R-CNN > Mask R-CNN
+R-CNN > Fast R-CNN > Faster R-CNN > Mask R-CNN
 
 이러한 알고리즘이 발전되는 과정에서 모델 성능에 대한 향상 뿐만 아니라 귀납적 편향이 크게 줄어들게 된다.
 이미지 내에서 객체가 있을 위치를 찾는 ROI 과정이 가정 사항이 필요한 selective search에서 RPN(region proposal network)로 대체된다.
