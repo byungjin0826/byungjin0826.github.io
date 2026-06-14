@@ -55,12 +55,9 @@ jobs:
           cache: ${{ steps.detect-package-manager.outputs.manager }}
       - name: Setup Pages
         uses: actions/configure-pages@v6
-        with:
-          # Automatically inject basePath in your Next.js configuration file and disable
-          # server side image optimization (https://nextjs.org/docs/api-reference/next/image#unoptimized).
-          #
-          # You may remove this line if you want to manage the configuration yourself.
-          static_site_generator: next
+        # next.config.js가 함수형 export라 static_site_generator: next(basePath 자동주입)가
+        # configure-pages@v6에서 파싱 에러를 일으킨다. user page(루트 배포)라 basePath 불필요하고
+        # output:'export'·images.unoptimized가 next.config.js에 이미 있으므로 옵션을 제거한다.
       - name: Restore cache
         uses: actions/cache@v5
         with:
