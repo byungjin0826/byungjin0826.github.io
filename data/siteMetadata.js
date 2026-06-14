@@ -3,7 +3,7 @@ const siteMetadata = {
   title: 'Blog',
   author: 'Shin, Byungjin',
   headerTitle: 'Blog',
-  description: '',
+  description: '데이터·AI 엔지니어의 기술 노트 — RAG·LLM 인프라, 시계열, 개발 경험을 기록합니다.',
   language: 'ko-KR',
   theme: 'system', // system, dark or light
   siteUrl: 'https://byungjin0826.github.io',
