@@ -1,7 +1,7 @@
 import siteMetadata from '@/data/siteMetadata'
 import { genPageMetadata } from 'app/seo'
 import { Button, Chip, Avatar, Divider, Eyebrow } from '@/components/journal/ui'
-import { Arrow, Github, Mail } from '@/components/journal/icons'
+import { Github, Mail } from '@/components/journal/icons'
 
 export const metadata = genPageMetadata({ title: 'About', description: '/steps — 데이터·AI 엔지니어' })
 
@@ -34,9 +34,6 @@ export default function AboutPage() {
       </p>
 
       <div className="mt-7 flex flex-wrap gap-3">
-        <Button href="/#subscribe" variant="primary">
-          구독하기 <Arrow size={16} />
-        </Button>
         <Button href={siteMetadata.github} variant="secondary" target="_blank" rel="noreferrer">
           <Github size={16} /> GitHub
         </Button>

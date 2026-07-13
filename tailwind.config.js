@@ -40,7 +40,7 @@ module.exports = {
       fontFamily: {
         display: ['Archivo', 'Pretendard', ...fontFamily.sans],
         sans: ['Pretendard', 'Archivo', ...fontFamily.sans],
-        mono: ['JetBrains Mono', ...fontFamily.mono],
+        mono: ['Spline Sans Mono', ...fontFamily.mono],
       },
       maxWidth: {
         container: 'var(--container)',

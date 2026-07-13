@@ -1,5 +1,5 @@
-/* 폰트 — Archivo(영문 디스플레이) · JetBrains Mono(코드/메타) : Google Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* 폰트 — Archivo(영문 디스플레이) · Spline Sans Mono(코드/메타) : Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Spline+Sans+Mono:wght@400;500;600&display=swap');
 
 /* Pretendard(한글 본문/UI) : jsDelivr variable woff2 */
 @font-face {
@@ -86,7 +86,7 @@
   /* typography */
   --font-display: 'Archivo', 'Pretendard', -apple-system, sans-serif;
   --font-sans: 'Pretendard', 'Archivo', -apple-system, 'Apple SD Gothic Neo', sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  --font-mono: 'Spline Sans Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
 
   /* layout */
   --container: 1120px;
@@ -204,4 +204,12 @@ input:-webkit-autofill:focus {
 
 .katex-display {
   overflow: auto hidden;
+}
+
+/* 목차 앵커 점프 시 sticky 헤더에 가리지 않도록 */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
+  scroll-margin-top: 96px;
 }

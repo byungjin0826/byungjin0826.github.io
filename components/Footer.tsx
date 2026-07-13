@@ -18,10 +18,13 @@ export default function Footer() {
     <footer className="mt-24 border-t-2 border-rule">
       <div className="ds-container flex flex-wrap justify-between gap-8 py-12">
         <div className="max-w-[340px]">
-          <div className="font-display text-xl font-black tracking-[-0.02em] text-ink">/steps</div>
-          <p className="mt-2 text-[0.8125rem] leading-relaxed text-ink-muted">
-            데이터·AI 엔지니어의 기술 노트 — RAG·LLM 인프라, 시계열, 개발 경험, 그리고 여행과 잡다한 호기심의 기록.
-          </p>
+          <div className="font-mono text-[19px] font-semibold tracking-[-0.03em] text-ink">
+            /steps
+            <span
+              aria-hidden
+              className="ml-[0.12em] inline-block h-[0.95em] w-[0.55em] bg-accent-text [vertical-align:-0.12em]"
+            />
+          </div>
           <div className="mt-4 flex gap-3.5 text-ink-muted">
             <a href={siteMetadata.github} target="_blank" rel="noreferrer" aria-label="GitHub" className="transition-colors hover:text-ink">
               <Github size={20} />
@@ -44,7 +47,6 @@ export default function Footer() {
           </div>
           <div>
             <div className="ds-eyebrow mb-3">더보기</div>
-            <FLink href="/about">About</FLink>
             <FLink href="/blog">아카이브</FLink>
           </div>
         </div>

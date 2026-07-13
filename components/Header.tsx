@@ -12,11 +12,12 @@ const Header = () => {
       <div className="ds-container flex h-[68px] items-center gap-5">
         {/* 워드마크 */}
         <Link href="/" aria-label={siteMetadata.headerTitle} className="flex flex-shrink-0 items-baseline gap-2.5">
-          <span className="whitespace-nowrap font-display text-[22px] font-black tracking-[-0.02em] text-ink">
+          <span className="whitespace-nowrap font-mono text-[21px] font-semibold tracking-[-0.03em] text-ink">
             /steps
-          </span>
-          <span className="hidden font-display text-[10px] font-bold tracking-[0.18em] text-accent-text sm:inline">
-            STEP BY STEP
+            <span
+              aria-hidden
+              className="ml-[0.12em] inline-block h-[0.95em] w-[0.55em] bg-accent-text [vertical-align:-0.12em]"
+            />
           </span>
         </Link>
 

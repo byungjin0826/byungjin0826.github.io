@@ -5,9 +5,10 @@ import Comments from '@/components/Comments'
 import Link from '@/components/Link'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
-import { Chip, Avatar, Divider, Button, Eyebrow } from '@/components/journal/ui'
+import { Chip, Avatar, Divider, Eyebrow } from '@/components/journal/ui'
 import { ArrowLeft, Clock, Github } from '@/components/journal/icons'
 import CopyLinkButton from '@/components/journal/CopyLinkButton'
+import Toc from '@/components/journal/Toc'
 import { postCategory, readingLabel, dotDate, topicTags } from '@/components/journal/meta'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
@@ -27,9 +28,11 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
   const { filePath, path, slug: postSlug, date, title, tags, summary } = content
   const basePath = path.split('/')[0]
   const nextPost = next && next.path ? next : prev && prev.path ? prev : null
+  const tocItems = (content.toc || []).filter((t) => t.depth <= 3)
+  const showToc = tocItems.length >= 3
 
   return (
-    <article className="ds-prose-container pb-4 pt-7">
+    <div className="ds-container pb-4 pt-7">
       <ScrollTopAndComment />
 
       <Link
@@ -39,8 +42,10 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
         <ArrowLeft size={15} /> 목록으로
       </Link>
 
-      {/* 헤더 */}
-      <header className="pt-7">
+      <div className="flex items-start justify-center gap-8 pt-7">
+        <article className="w-full min-w-0 max-w-prose">
+          {/* 헤더 */}
+          <header>
         <div className="mb-4 flex items-center gap-3">
           <Chip variant="solid">{postCategory(tags)}</Chip>
           <span className="font-mono text-xs text-ink-muted">{dotDate(date)}</span>
@@ -61,6 +66,16 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
           </div>
         </div>
       </header>
+
+      {/* 좁은 화면: 접이식 목차 */}
+      {showToc && (
+        <details className="mt-6 rounded-md border border-line px-4 py-3 min-[1040px]:hidden">
+          <summary className="ds-eyebrow cursor-pointer list-none">목차</summary>
+          <div className="mt-3">
+            <Toc toc={tocItems} />
+          </div>
+        </details>
+      )}
 
       {/* 본문 */}
       <div className="prose max-w-none pt-8 dark:prose-invert">{children}</div>
@@ -94,16 +109,8 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
         <div className="flex gap-5">
           <Avatar name="/steps" size="xl" />
           <div>
-            <div className="text-[1.1875rem] font-extrabold tracking-[-0.01em] text-ink">
-              /steps{' '}
-              <span className="font-mono text-xs font-normal text-ink-muted">STEP BY STEP</span>
-            </div>
-            <p className="mb-3.5 mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{AUTHOR_BIO}</p>
-            <div className="flex gap-2.5">
-              <Button href="/about" variant="secondary" size="sm">
-                소개 보기
-              </Button>
-            </div>
+            <div className="text-[1.1875rem] font-extrabold tracking-[-0.01em] text-ink">/steps</div>
+            <p className="mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{AUTHOR_BIO}</p>
           </div>
         </div>
       </div>
@@ -121,11 +128,21 @@ export default function PostLayout({ content, next, prev, children }: LayoutProp
         </div>
       )}
 
-      {siteMetadata.comments && (
-        <div className="mt-12 pt-6" id="comment">
-          <Comments slug={postSlug} />
-        </div>
-      )}
-    </article>
+          {siteMetadata.comments && (
+            <div className="mt-12 pt-6" id="comment">
+              <Comments slug={postSlug} />
+            </div>
+          )}
+        </article>
+
+        {/* 넓은 화면: 우측 고정 목차 */}
+        {showToc && (
+          <aside className="sticky top-[92px] hidden w-[200px] flex-shrink-0 min-[1040px]:block">
+            <Eyebrow className="mb-3.5">목차</Eyebrow>
+            <Toc toc={tocItems} />
+          </aside>
+        )}
+      </div>
+    </div>
   )
 }

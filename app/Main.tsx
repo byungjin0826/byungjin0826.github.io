@@ -5,8 +5,8 @@ import { slug } from 'github-slugger'
 import type { CoreContent, Blog } from '@/lib/content-types'
 import Link from '@/components/Link'
 import tagData from 'app/tag-data.json'
-import { Chip, Button, Avatar, Divider, Eyebrow } from '@/components/journal/ui'
-import { Arrow, Mail } from '@/components/journal/icons'
+import { Chip, Avatar, Divider, Eyebrow } from '@/components/journal/ui'
+import { Arrow } from '@/components/journal/icons'
 import { CATEGORIES, inCategory, postCategory, readingLabel, dotDate, topicTags } from '@/components/journal/meta'
 
 type Post = CoreContent<Blog>
@@ -124,28 +124,6 @@ export default function Main({ posts }: { posts: Post[] }) {
 
         {/* 사이드바 */}
         <aside className="flex flex-col gap-8 lg:sticky lg:top-[92px]">
-          <div id="subscribe" className="scroll-mt-24 rounded-lg border border-line bg-surface p-6">
-            <h4 className="m-0 text-[1.375rem] font-bold tracking-[-0.01em] text-ink">구독하기</h4>
-            <p className="mb-3.5 mt-1.5 text-[0.8125rem] text-ink-muted">
-              새 글을 이메일로. 주 1회, 스팸 없음.
-            </p>
-            <form className="flex flex-col gap-2.5" action="#" onSubmit={(e) => e.preventDefault()}>
-              <div className="flex items-center gap-2 rounded-md border-[1.5px] border-line bg-surface px-3.5 py-2.5 focus-within:border-line-strong">
-                <span className="text-ink-subtle">
-                  <Mail size={16} />
-                </span>
-                <input
-                  type="email"
-                  placeholder="you@example.com"
-                  className="w-full border-none bg-transparent text-[0.9375rem] text-ink outline-none placeholder:text-ink-subtle"
-                />
-              </div>
-              <Button type="submit" variant="primary" full>
-                구독
-              </Button>
-            </form>
-          </div>
-
           <div className="rounded-lg border border-line bg-surface p-6">
             <div className="flex items-center gap-3">
               <Avatar name="/steps" size="lg" />
@@ -154,15 +132,6 @@ export default function Main({ posts }: { posts: Post[] }) {
                 <div className="text-[0.8125rem] text-ink-muted">Data Scientist</div>
               </div>
             </div>
-            <p className="mt-3.5 text-[0.8125rem] leading-relaxed text-ink-muted">
-              데이터로 세상을 읽고, 여행으로 세상을 걷고, 새 기술로 내일을 상상합니다.
-            </p>
-            <Link
-              href="/about"
-              className="mt-3 inline-flex items-center gap-1.5 text-[0.8125rem] font-bold text-ink transition-colors hover:text-accent-text"
-            >
-              소개 보기 <Arrow size={14} />
-            </Link>
           </div>
 
           <div>
