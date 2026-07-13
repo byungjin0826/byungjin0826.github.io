@@ -1,6 +1,178 @@
+/* 폰트 — Archivo(영문 디스플레이) · JetBrains Mono(코드/메타) : Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+/* Pretendard(한글 본문/UI) : jsDelivr variable woff2 */
+@font-face {
+  font-family: 'Pretendard';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/woff2/PretendardVariable.woff2')
+    format('woff2-variations');
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* ============================================================
+   신병진 Design System — 토큰 (Slate & Citrus)
+   쿨 슬레이트 뉴트럴 + 시트러스 라임 단일 포인트.
+   라이트 = :root, 다크 = .dark (next-themes class 전략).
+   ============================================================ */
+:root {
+  /* base: slate neutrals */
+  --slate-950: #14181b;
+  --slate-900: #1e2429;
+  --slate-850: #23292e;
+  --slate-800: #20262b;
+  --slate-700: #2b343b;
+  --slate-600: #3f5560;
+  --slate-500: #5f7079;
+  --slate-400: #8c99a2;
+  --slate-300: #b9c2c8;
+  --slate-200: #d6dce0;
+  --slate-150: #e2e6e9;
+  --slate-100: #e6e9ec;
+  --slate-50: #eef0f2;
+  --white: #ffffff;
+  --black: #0c0f11;
+
+  /* base: citrus (lime) accent */
+  --citrus-700: #3f6100;
+  --citrus-600: #4f7a00;
+  --citrus-500: #5b8c00;
+  --citrus-400: #a3e635;
+  --citrus-300: #b5f13f;
+  --citrus-200: #d4f59a;
+  --citrus-100: #eef8d4;
+  --citrus-50: #f6fbe8;
+
+  /* functional */
+  --blue-500: #2b6fdb;
+  --amber-500: #d98a0b;
+  --red-500: #d64545;
+  --green-500: #2f9e6b;
+
+  /* semantic (light) */
+  --bg: var(--slate-50);
+  --surface: var(--white);
+  --surface-2: var(--slate-100);
+  --surface-sunken: var(--slate-150);
+
+  --text: var(--slate-800);
+  --text-muted: var(--slate-500);
+  --text-subtle: var(--slate-400);
+  --text-inverse: var(--slate-50);
+
+  --border: var(--slate-200);
+  --border-strong: var(--slate-800);
+  --rule: var(--slate-800);
+
+  --accent: var(--citrus-400);
+  --accent-hover: var(--citrus-500);
+  --accent-press: var(--citrus-600);
+  --accent-text: var(--citrus-600);
+  --accent-soft: var(--citrus-100);
+  --on-accent: var(--slate-800);
+
+  --info: var(--blue-500);
+  --warning: var(--amber-500);
+  --danger: var(--red-500);
+  --success: var(--green-500);
+
+  --focus-ring: color-mix(in oklch, var(--citrus-500) 55%, transparent);
+
+  /* typography */
+  --font-display: 'Archivo', 'Pretendard', -apple-system, sans-serif;
+  --font-sans: 'Pretendard', 'Archivo', -apple-system, 'Apple SD Gothic Neo', sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* layout */
+  --container: 1120px;
+  --container-prose: 772px; /* 홈 본문 컬럼(≈724px)과 안쪽 폭 일치 */
+  --gutter: 1.5rem;
+
+  /* effects */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 14px;
+  --radius-xl: 20px;
+  --radius-pill: 999px;
+  --shadow-sm: 0 2px 6px rgba(20, 24, 27, 0.07);
+  --shadow-md: 0 8px 24px rgba(20, 24, 27, 0.09);
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-fast: 120ms;
+  --dur-base: 180ms;
+}
+
+.dark {
+  --bg: var(--slate-950);
+  --surface: var(--slate-900);
+  --surface-2: var(--slate-850);
+  --surface-sunken: var(--slate-800);
+
+  --text: var(--slate-50);
+  --text-muted: var(--slate-400);
+  --text-subtle: var(--slate-500);
+  --text-inverse: var(--slate-900);
+
+  --border: var(--slate-700);
+  --border-strong: var(--slate-300);
+  --rule: var(--slate-50);
+
+  --accent: var(--citrus-300);
+  --accent-hover: var(--citrus-400);
+  --accent-press: var(--citrus-200);
+  --accent-text: var(--citrus-300);
+  --accent-soft: color-mix(in oklch, var(--citrus-400) 16%, var(--slate-900));
+  --on-accent: var(--slate-950);
+
+  --focus-ring: color-mix(in oklch, var(--citrus-300) 55%, transparent);
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.45);
+  --shadow-md: 0 10px 28px rgba(0, 0, 0, 0.5);
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  ::selection {
+    background: var(--accent);
+    color: var(--on-accent);
+  }
+  :focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+  }
+}
+
+/* ---- editorial helpers ---- */
+.ds-header {
+  background: color-mix(in oklch, var(--bg) 86%, transparent);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
+  backdrop-filter: saturate(1.4) blur(12px);
+}
+.ds-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+.ds-container {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.ds-prose-container {
+  max-width: var(--container-prose);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
 
 .task-list-item::before {
   @apply hidden;
@@ -11,7 +183,7 @@
 }
 
 .footnotes {
-  @apply mt-12 border-t border-gray-200 pt-8 dark:border-gray-700;
+  @apply mt-12 border-t border-line pt-8;
 }
 
 .data-footnote-backref {

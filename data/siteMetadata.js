@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: 'Blog',
+  title: '/steps',
   author: 'Shin, Byungjin',
-  headerTitle: 'Blog',
+  headerTitle: '/steps',
   description: '데이터·AI 엔지니어의 기술 노트 — RAG·LLM 인프라, 시계열, 개발 경험을 기록합니다.',
   language: 'ko-KR',
   theme: 'system', // system, dark or light

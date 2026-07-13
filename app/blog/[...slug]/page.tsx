@@ -1,32 +1,45 @@
 import 'css/prism.css'
 import 'katex/dist/katex.css'
 
-import PageTitle from '@/components/PageTitle'
+import { MDXRemote } from 'next-mdx-remote/rsc'
+import remarkGfm from 'remark-gfm'
+import remarkMath from 'remark-math'
+import { remarkCodeTitles, remarkImgToJsx } from 'pliny/mdx-plugins/index.js'
+import rehypeSlug from 'rehype-slug'
+import rehypeAutolinkHeadings from 'rehype-autolink-headings'
+import rehypeKatex from 'rehype-katex'
+import rehypePrismPlus from 'rehype-prism-plus'
 import { components } from '@/components/MDXComponents'
-import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs, allAuthors } from 'contentlayer/generated'
-import type { Authors, Blog } from 'contentlayer/generated'
-import PostSimple from '@/layouts/PostSimple'
+import { sortPosts, coreContent, allCoreContent, allBlogs, allAuthors } from '@/lib/content'
+import type { Authors, Blog } from '@/lib/content-types'
 import PostLayout from '@/layouts/PostLayout'
-import PostBanner from '@/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 
+// unified 플러그인 배열은 튜플/유니온 위드닝으로 CompileOptions와 정확히 일치시키기 어려워 any 로 둔다
+const mdxOptions: any = {
+  remarkPlugins: [remarkGfm, remarkMath, remarkCodeTitles, remarkImgToJsx],
+  rehypePlugins: [
+    rehypeSlug,
+    rehypeAutolinkHeadings,
+    rehypeKatex,
+    [rehypePrismPlus, { defaultLanguage: 'js', ignoreMissing: true }],
+  ],
+}
+
 const defaultLayout = 'PostLayout'
 const layouts = {
-  PostSimple,
   PostLayout,
-  PostBanner,
 }
 
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string[] }
+  params: Promise<{ slug: string[] }>
 }): Promise<Metadata | undefined> {
-  const slug = decodeURI(params.slug.join('/'))
+  const { slug: slugArr } = await params
+  const slug = decodeURI(slugArr.join('/'))
   const post = allBlogs.find((p) => p.slug === slug)
   const authorList = post?.authors || ['default']
   const authorDetails = authorList.map((author) => {
@@ -57,7 +70,7 @@ export async function generateMetadata({
       title: post.title,
       description: post.summary,
       siteName: siteMetadata.title,
-      locale: 'en_US',
+      locale: 'ko_KR',
       type: 'article',
       publishedTime: publishedAt,
       modifiedTime: modifiedAt,
@@ -75,14 +88,12 @@ export async function generateMetadata({
 }
 
 export const generateStaticParams = async () => {
-  const paths = allBlogs.map((p) => ({ slug: p.slug.split('/') }))
-
-  return paths
+  return allBlogs.map((p) => ({ slug: p.slug.split('/') }))
 }
 
-export default async function Page({ params }: { params: { slug: string[] } }) {
-  const slug = decodeURI(params.slug.join('/'))
-  // Filter out drafts in production
+export default async function Page({ params }: { params: Promise<{ slug: string[] }> }) {
+  const { slug: slugArr } = await params
+  const slug = decodeURI(slugArr.join('/'))
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
   if (postIndex === -1) {
@@ -98,7 +109,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     return coreContent(authorResults as Authors)
   })
   const mainContent = coreContent(post)
-  const jsonLd = post.structuredData
+  const jsonLd = { ...post.structuredData } as Record<string, unknown>
   jsonLd['author'] = authorDetails.map((author) => {
     return {
       '@type': 'Person',
@@ -106,7 +117,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
     }
   })
 
-  const Layout = layouts[post.layout || defaultLayout]
+  const Layout = layouts[(post.layout as keyof typeof layouts) || defaultLayout]
 
   return (
     <>
@@ -115,7 +126,7 @@ export default async function Page({ params }: { params: { slug: string[] } }) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
-        <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
+        <MDXRemote source={post.body.raw} components={components} options={{ mdxOptions }} />
       </Layout>
     </>
   )

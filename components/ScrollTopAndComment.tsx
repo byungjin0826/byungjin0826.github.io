@@ -3,6 +3,9 @@
 import siteMetadata from '@/data/siteMetadata'
 import { useEffect, useState } from 'react'
 
+const BTN_CLS =
+  'inline-flex h-[38px] w-[38px] items-center justify-center rounded-md border-[1.5px] border-line bg-surface text-ink-muted transition-colors hover:border-line-strong hover:bg-surface-2 hover:text-ink'
+
 const ScrollTopAndComment = () => {
   const [show, setShow] = useState(false)
 
@@ -24,14 +27,10 @@ const ScrollTopAndComment = () => {
   }
   return (
     <div
-      className={`fixed bottom-8 right-8 hidden flex-col gap-3 ${show ? 'md:flex' : 'md:hidden'}`}
+      className={`fixed bottom-8 right-8 z-10 hidden flex-col gap-2.5 ${show ? 'md:flex' : 'md:hidden'}`}
     >
       {siteMetadata.comments?.provider && (
-        <button
-          aria-label="Scroll To Comment"
-          onClick={handleScrollToComment}
-          className="rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
-        >
+        <button aria-label="댓글로 이동" onClick={handleScrollToComment} className={BTN_CLS}>
           <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
             <path
               fillRule="evenodd"
@@ -41,11 +40,7 @@ const ScrollTopAndComment = () => {
           </svg>
         </button>
       )}
-      <button
-        aria-label="Scroll To Top"
-        onClick={handleScrollTop}
-        className="rounded-full bg-gray-200 p-2 text-gray-500 transition-all hover:bg-gray-300 dark:bg-gray-700 dark:text-gray-400 dark:hover:bg-gray-600"
-      >
+      <button aria-label="맨 위로" onClick={handleScrollTop} className={BTN_CLS}>
         <svg className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
           <path
             fillRule="evenodd"

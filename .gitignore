@@ -48,3 +48,12 @@ yarn-error.log*
 
 # Obsidian
 .Obsidian
+# 빌드 생성 콘텐츠(scripts/build-content.mjs)
+lib/generated/
+/public/search.json
+/public/feed.xml
+/public/tags/
+app/tag-data.json
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo

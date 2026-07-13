@@ -2,6 +2,7 @@
 title: 우분투 메모리 이슈 및 해결
 date: 2024-05-07
 tags:
+  - tech
   - ubuntu
   - low memory
   - buffer memory

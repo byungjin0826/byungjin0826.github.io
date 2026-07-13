@@ -1,166 +1,131 @@
 import { ReactNode } from 'react'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog, Authors } from 'contentlayer/generated'
+import type { CoreContent, Blog, Authors } from '@/lib/content-types'
+import { slug } from 'github-slugger'
 import Comments from '@/components/Comments'
 import Link from '@/components/Link'
-import PageTitle from '@/components/PageTitle'
-import SectionContainer from '@/components/SectionContainer'
-import Image from '@/components/Image'
-import Tag from '@/components/Tag'
 import siteMetadata from '@/data/siteMetadata'
 import ScrollTopAndComment from '@/components/ScrollTopAndComment'
+import { Chip, Avatar, Divider, Button, Eyebrow } from '@/components/journal/ui'
+import { ArrowLeft, Clock, Github } from '@/components/journal/icons'
+import CopyLinkButton from '@/components/journal/CopyLinkButton'
+import { postCategory, readingLabel, dotDate, topicTags } from '@/components/journal/meta'
 
 const editUrl = (path) => `${siteMetadata.siteRepo}/blob/main/data/${path}`
-const discussUrl = (path) =>
-  `https://mobile.twitter.com/search?q=${encodeURIComponent(`${siteMetadata.siteUrl}/${path}`)}`
 
-const postDateTemplate: Intl.DateTimeFormatOptions = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric',
-}
+const AUTHOR_BIO =
+  '데이터·AI 엔지니어. RAG·LLM 인프라와 시계열, 그리고 개발하며 겪은 것들을 기록합니다. 여행과 잡다한 호기심도 함께.'
 
 interface LayoutProps {
   content: CoreContent<Blog>
   authorDetails: CoreContent<Authors>[]
-  next?: { path: string; title: string }
-  prev?: { path: string; title: string }
+  next?: { path: string; title: string; tags?: string[] }
+  prev?: { path: string; title: string; tags?: string[] }
   children: ReactNode
 }
 
-export default function PostLayout({ content, authorDetails, next, prev, children }: LayoutProps) {
-  const { filePath, path, slug, date, title, tags } = content
+export default function PostLayout({ content, next, prev, children }: LayoutProps) {
+  const { filePath, path, slug: postSlug, date, title, tags, summary } = content
   const basePath = path.split('/')[0]
+  const nextPost = next && next.path ? next : prev && prev.path ? prev : null
 
   return (
-    <SectionContainer>
+    <article className="ds-prose-container pb-4 pt-7">
       <ScrollTopAndComment />
-      <article>
-        <div className="xl:divide-y xl:divide-gray-200 xl:dark:divide-gray-700">
-          <header className="pt-6 xl:pb-6">
-            <div className="space-y-1 text-center">
-              <dl className="space-y-10">
-                <div>
-                  <dt className="sr-only">Published on</dt>
-                  <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                    <time dateTime={date}>
-                      {new Date(date).toLocaleDateString(siteMetadata.locale, postDateTemplate)}
-                    </time>
-                  </dd>
-                </div>
-              </dl>
-              <div>
-                <PageTitle>{title}</PageTitle>
-              </div>
+
+      <Link
+        href={`/${basePath}`}
+        className="inline-flex items-center gap-1.5 text-[0.8125rem] font-bold text-ink-muted transition-colors hover:text-ink"
+      >
+        <ArrowLeft size={15} /> 목록으로
+      </Link>
+
+      {/* 헤더 */}
+      <header className="pt-7">
+        <div className="mb-4 flex items-center gap-3">
+          <Chip variant="solid">{postCategory(tags)}</Chip>
+          <span className="font-mono text-xs text-ink-muted">{dotDate(date)}</span>
+        </div>
+        <h1 className="m-0 text-[clamp(2rem,6vw,3rem)] font-extrabold leading-[1.08] tracking-[-0.03em] text-ink">
+          {title}
+        </h1>
+        {summary && (
+          <p className="mt-4 text-[1.1875rem] leading-relaxed text-ink-muted">{summary}</p>
+        )}
+        <div className="mt-6 flex items-center gap-3 border-b-2 border-rule pb-6">
+          <Avatar name="/steps" size="md" />
+          <div className="text-[0.8125rem]">
+            <div className="font-bold text-ink">/steps</div>
+            <div className="flex items-center gap-1.5 text-ink-muted">
+              <Clock size={13} /> {readingLabel(content.readingTime)}
             </div>
-          </header>
-          <div className="grid-rows-[auto_1fr] divide-y divide-gray-200 pb-8 dark:divide-gray-700 xl:grid xl:grid-cols-4 xl:gap-x-6 xl:divide-y-0">
-            <dl className="pb-10 pt-6 xl:border-b xl:border-gray-200 xl:pt-11 xl:dark:border-gray-700">
-              <dt className="sr-only">Authors</dt>
-              <dd>
-                <ul className="flex flex-wrap justify-center gap-4 sm:space-x-12 xl:block xl:space-x-0 xl:space-y-8">
-                  {authorDetails.map((author) => (
-                    <li className="flex items-center space-x-2" key={author.name}>
-                      {author.avatar && (
-                        <Image
-                          src={author.avatar}
-                          width={38}
-                          height={38}
-                          alt="avatar"
-                          className="h-10 w-10 rounded-full"
-                        />
-                      )}
-                      <dl className="whitespace-nowrap text-sm font-medium leading-5">
-                        <dt className="sr-only">Name</dt>
-                        <dd className="text-gray-900 dark:text-gray-100">{author.name}</dd>
-                        <dt className="sr-only">Twitter</dt>
-                        <dd>
-                          {author.twitter && (
-                            <Link
-                              href={author.twitter}
-                              className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                            >
-                              {author.twitter.replace('https://twitter.com/', '@')}
-                            </Link>
-                          )}
-                        </dd>
-                      </dl>
-                    </li>
-                  ))}
-                </ul>
-              </dd>
-            </dl>
-            <div className="divide-y divide-gray-200 dark:divide-gray-700 xl:col-span-3 xl:row-span-2 xl:pb-0">
-              <div className="prose max-w-none pb-8 pt-10 dark:prose-invert">{children}</div>
-              <div className="pb-6 pt-6 text-sm text-gray-700 dark:text-gray-300">
-                <Link href={discussUrl(path)} rel="nofollow">
-                  Discuss on Twitter
-                </Link>
-                {` • `}
-                <Link href={editUrl(filePath)}>View on GitHub</Link>
-              </div>
-              {siteMetadata.comments && (
-                <div
-                  className="pb-6 pt-6 text-center text-gray-700 dark:text-gray-300"
-                  id="comment"
-                >
-                  <Comments slug={slug} />
-                </div>
-              )}
-            </div>
-            <footer>
-              <div className="divide-gray-200 text-sm font-medium leading-5 dark:divide-gray-700 xl:col-start-1 xl:row-start-2 xl:divide-y">
-                {tags && (
-                  <div className="py-4 xl:py-8">
-                    <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                      Tags
-                    </h2>
-                    <div className="flex flex-wrap">
-                      {tags.map((tag) => (
-                        <Tag key={tag} text={tag} />
-                      ))}
-                    </div>
-                  </div>
-                )}
-                {(next || prev) && (
-                  <div className="flex justify-between py-4 xl:block xl:space-y-8 xl:py-8">
-                    {prev && prev.path && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Previous Article
-                        </h2>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${prev.path}`}>{prev.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                    {next && next.path && (
-                      <div>
-                        <h2 className="text-xs uppercase tracking-wide text-gray-500 dark:text-gray-400">
-                          Next Article
-                        </h2>
-                        <div className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                          <Link href={`/${next.path}`}>{next.title}</Link>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                )}
-              </div>
-              <div className="pt-4 xl:pt-8">
-                <Link
-                  href={`/${basePath}`}
-                  className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400"
-                  aria-label="Back to the blog"
-                >
-                  &larr; Back to the blog
-                </Link>
-              </div>
-            </footer>
           </div>
         </div>
-      </article>
-    </SectionContainer>
+      </header>
+
+      {/* 본문 */}
+      <div className="prose max-w-none pt-8 dark:prose-invert">{children}</div>
+
+      {/* 토픽 태그 */}
+      {tags && tags.length > 0 && (
+        <div className="mt-10 flex flex-wrap gap-2">
+          {topicTags(tags).map((t) => (
+            <Chip key={t} href={`/tags/${slug(t)}`}>
+              #{t}
+            </Chip>
+          ))}
+        </div>
+      )}
+
+      {/* 액션 */}
+      <div className="mt-6 flex flex-wrap gap-2.5">
+        <CopyLinkButton />
+        <a
+          href={editUrl(filePath)}
+          target="_blank"
+          rel="noreferrer"
+          className="inline-flex items-center justify-center gap-1.5 rounded-md border-[1.5px] border-line-strong px-3.5 py-[7px] text-[0.8125rem] font-semibold text-ink transition-colors hover:border-ink hover:bg-surface-2"
+        >
+          <Github size={15} /> GitHub에서 보기
+        </a>
+      </div>
+
+      {/* 저자 카드 */}
+      <div className="mt-12 rounded-lg border border-line bg-surface p-6">
+        <div className="flex gap-5">
+          <Avatar name="/steps" size="xl" />
+          <div>
+            <div className="text-[1.1875rem] font-extrabold tracking-[-0.01em] text-ink">
+              /steps{' '}
+              <span className="font-mono text-xs font-normal text-ink-muted">STEP BY STEP</span>
+            </div>
+            <p className="mb-3.5 mt-2 text-[0.9375rem] leading-relaxed text-ink-muted">{AUTHOR_BIO}</p>
+            <div className="flex gap-2.5">
+              <Button href="/about" variant="secondary" size="sm">
+                소개 보기
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* 다음 글 */}
+      {nextPost && (
+        <div className="mt-10">
+          <Divider label="다음 글" />
+          <Link href={`/${nextPost.path}`} className="group mt-4 block">
+            {nextPost.tags && <Eyebrow className="mb-1.5">{postCategory(nextPost.tags)}</Eyebrow>}
+            <h3 className="text-[1.75rem] font-extrabold tracking-[-0.02em] text-ink transition-colors group-hover:text-accent-text">
+              {nextPost.title} →
+            </h3>
+          </Link>
+        </div>
+      )}
+
+      {siteMetadata.comments && (
+        <div className="mt-12 pt-6" id="comment">
+          <Comments slug={postSlug} />
+        </div>
+      )}
+    </article>
   )
 }

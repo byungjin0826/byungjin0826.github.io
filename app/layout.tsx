@@ -1,22 +1,14 @@
 import 'css/tailwind.css'
 import 'pliny/search/algolia.css'
 
-import { Space_Grotesk } from 'next/font/google'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-import { SearchProvider, SearchConfig } from 'pliny/search'
+import { Analytics, AnalyticsConfig } from 'pliny/analytics/index.js'
+import { SearchProvider, SearchConfig } from 'pliny/search/index.js'
 import Header from '@/components/Header'
-import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
 import siteMetadata from '@/data/siteMetadata'
 import { ThemeProviders } from './theme-providers'
 import { Metadata } from 'next'
-import { GA } from 'pliny/analytics/GoogleAnalytics'
-
-const space_grotesk = Space_Grotesk({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-space-grotesk',
-})
+import { GA } from 'pliny/analytics/GoogleAnalytics.js'
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteMetadata.siteUrl),
@@ -60,13 +52,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html
-      lang={siteMetadata.language}
-      className={`${space_grotesk.variable} scroll-smooth`}
-      suppressHydrationWarning
-    >
+    <html lang={siteMetadata.language} className="scroll-smooth" suppressHydrationWarning>
       <meta name="google-site-verification" content="zE1hn826qsD4PvPhHw5FwPU5DglJENtomClMgLQVFek" />
       <link rel="apple-touch-icon" sizes="76x76" href="/static/favicons/apple-touch-icon.png" />
+      <link rel="icon" type="image/svg+xml" href="/static/favicons/logo-monogram.svg" />
       <link rel="icon" type="image/png" sizes="32x32" href="/static/favicons/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/static/favicons/favicon-16x16.png" />
       <link rel="manifest" href="/static/favicons/site.webmanifest" />
@@ -75,18 +64,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href="/feed.xml" />
-      <body className="bg-white text-black antialiased dark:bg-gray-950 dark:text-white">
+      <body className="bg-page font-sans text-ink antialiased">
         <ThemeProviders>
           <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
-          <SectionContainer>
-            <div className="flex h-screen flex-col justify-between font-sans">
-              <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-                <Header />
-                <main className="mb-auto">{children}</main>
-              </SearchProvider>
-              <Footer />
-            </div>
-          </SectionContainer>
+          <div className="flex min-h-screen flex-col">
+            <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
+              <Header />
+              <main className="mb-auto">{children}</main>
+            </SearchProvider>
+            <Footer />
+          </div>
           <GA googleAnalyticsId="G-BFHPHJWS4J" />
         </ThemeProviders>
       </body>

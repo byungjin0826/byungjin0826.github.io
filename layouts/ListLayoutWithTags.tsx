@@ -1,15 +1,11 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 'use client'
 
+import { useState } from 'react'
 import { usePathname } from 'next/navigation'
-import { slug } from 'github-slugger'
-import { formatDate } from 'pliny/utils/formatDate'
-import { CoreContent } from 'pliny/utils/contentlayer'
-import type { Blog } from 'contentlayer/generated'
+import type { CoreContent, Blog } from '@/lib/content-types'
 import Link from '@/components/Link'
-import Tag from '@/components/Tag'
-import siteMetadata from '@/data/siteMetadata'
-import tagData from 'app/tag-data.json'
+import { Chip, Divider, Eyebrow } from '@/components/journal/ui'
+import { CATEGORIES, inCategory, postCategory, dotDate } from '@/components/journal/meta'
 
 interface PaginationProps {
   totalPages: number
@@ -22,142 +18,79 @@ interface ListLayoutProps {
   pagination?: PaginationProps
 }
 
-function Pagination({ totalPages, currentPage }: PaginationProps) {
-  const pathname = usePathname()
-  const basePath = pathname.split('/')[1]
-  const prevPage = currentPage - 1 > 0
-  const nextPage = currentPage + 1 <= totalPages
-
+function ArchiveRow({ post }: { post: CoreContent<Blog> }) {
   return (
-    <div className="space-y-2 pb-8 pt-6 md:space-y-5">
-      <nav className="flex justify-between">
-        {!prevPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!prevPage}>
-            Previous
-          </button>
+    <Link
+      href={`/${post.path}`}
+      className="group grid grid-cols-[1fr_auto] items-baseline gap-x-4 gap-y-1 border-t border-line py-4 sm:grid-cols-[96px_1fr_auto]"
+    >
+      <span className="order-2 font-mono text-xs text-ink-muted sm:order-none sm:pt-1">
+        {dotDate(post.date)}
+      </span>
+      <div className="order-1 col-span-2 sm:order-none sm:col-span-1">
+        <h3 className="text-[1.1875rem] font-extrabold tracking-[-0.02em] text-ink transition-colors group-hover:text-accent-text">
+          {post.title}
+        </h3>
+        {post.summary && (
+          <p className="mt-1.5 text-[0.8125rem] leading-relaxed text-ink-muted">{post.summary}</p>
         )}
-        {prevPage && (
-          <Link
-            href={currentPage - 1 === 1 ? `/${basePath}/` : `/${basePath}/page/${currentPage - 1}`}
-            rel="prev"
-          >
-            Previous
-          </Link>
-        )}
-        <span>
-          {currentPage} of {totalPages}
-        </span>
-        {!nextPage && (
-          <button className="cursor-auto disabled:opacity-50" disabled={!nextPage}>
-            Next
-          </button>
-        )}
-        {nextPage && (
-          <Link href={`/${basePath}/page/${currentPage + 1}`} rel="next">
-            Next
-          </Link>
-        )}
-      </nav>
-    </div>
+      </div>
+      <span className="order-3 sm:order-none">
+        <Chip variant="solid">{postCategory(post.tags)}</Chip>
+      </span>
+    </Link>
   )
 }
 
-export default function ListLayoutWithTags({
-  posts,
-  title,
-  initialDisplayPosts = [],
-  pagination,
-}: ListLayoutProps) {
-  const pathname = usePathname()
-  const tagCounts = tagData as Record<string, number>
-  const tagKeys = Object.keys(tagCounts)
-  const sortedTags = tagKeys.sort((a, b) => tagCounts[b] - tagCounts[a])
+export default function ListLayoutWithTags({ posts, title }: ListLayoutProps) {
+  const pathname = usePathname() || ''
+  const showFilter = pathname.startsWith('/blog')
+  const [cat, setCat] = useState<string>('전체')
 
-  const displayPosts = initialDisplayPosts.length > 0 ? initialDisplayPosts : posts
+  const filtered = showFilter ? posts.filter((p) => inCategory(p.tags, cat)) : posts
+
+  // 연도별 그룹
+  const byYear: Record<string, CoreContent<Blog>[]> = {}
+  filtered.forEach((p) => {
+    const y = new Date(p.date).getFullYear().toString()
+    ;(byYear[y] = byYear[y] || []).push(p)
+  })
+  const years = Object.keys(byYear).sort((a, b) => Number(b) - Number(a))
+
+  const heading = showFilter && cat !== '전체' ? `전체 글 · ${cat}` : title
 
   return (
-    <>
-      <div>
-        <div className="pb-6 pt-6">
-          <h1 className="text-3xl font-extrabold leading-9 tracking-tight text-gray-900 dark:text-gray-100 sm:hidden sm:text-4xl sm:leading-10 md:text-6xl md:leading-14">
-            {title}
-          </h1>
+    <div className="ds-prose-container pt-8 py-8">
+      <Eyebrow>Archive</Eyebrow>
+      <h1 className="mt-3 text-[3rem] font-extrabold leading-[1.05] tracking-[-0.03em] text-ink">
+        {heading}
+      </h1>
+      <p className="mt-2.5 font-mono text-[0.8125rem] text-ink-muted">{filtered.length} posts</p>
+
+      {showFilter && (
+        <div className="mt-6 flex flex-wrap gap-2">
+          {CATEGORIES.map((c) => (
+            <Chip key={c} active={cat === c} onClick={() => setCat(c)}>
+              {c}
+            </Chip>
+          ))}
         </div>
-        <div className="flex sm:space-x-24">
-          <div className="hidden h-full max-h-screen min-w-[280px] max-w-[280px] flex-wrap overflow-auto rounded bg-gray-50 pt-5 shadow-md dark:bg-gray-900/70 dark:shadow-gray-800/40 sm:flex">
-            <div className="px-6 py-4">
-              {pathname.startsWith('/blog') ? (
-                <h3 className="font-bold uppercase text-primary-500">All Posts</h3>
-              ) : (
-                <Link
-                  href={`/blog`}
-                  className="font-bold uppercase text-gray-700 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
-                >
-                  All Posts
-                </Link>
-              )}
-              <ul>
-                {sortedTags.map((t) => {
-                  return (
-                    <li key={t} className="my-3">
-                      {pathname.split('/tags/')[1] === slug(t) ? (
-                        <h3 className="inline px-3 py-2 text-sm font-bold uppercase text-primary-500">
-                          {`${t} (${tagCounts[t]})`}
-                        </h3>
-                      ) : (
-                        <Link
-                          href={`/tags/${slug(t)}`}
-                          className="px-3 py-2 text-sm font-medium uppercase text-gray-500 hover:text-primary-500 dark:text-gray-300 dark:hover:text-primary-500"
-                          aria-label={`View posts tagged ${t}`}
-                        >
-                          {`${t} (${tagCounts[t]})`}
-                        </Link>
-                      )}
-                    </li>
-                  )
-                })}
-              </ul>
-            </div>
+      )}
+
+      {years.map((y) => (
+        <section key={y} className="mt-12">
+          <Divider label={y} />
+          <div className="mt-4">
+            {byYear[y].map((p) => (
+              <ArchiveRow key={p.path} post={p} />
+            ))}
           </div>
-          <div>
-            <ul>
-              {displayPosts.map((post) => {
-                const { path, date, title, summary, tags } = post
-                return (
-                  <li key={path} className="py-5">
-                    <article className="flex flex-col space-y-2 xl:space-y-0">
-                      <dl>
-                        <dt className="sr-only">Published on</dt>
-                        <dd className="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
-                          <time dateTime={date}>{formatDate(date, siteMetadata.locale)}</time>
-                        </dd>
-                      </dl>
-                      <div className="space-y-3">
-                        <div>
-                          <h2 className="text-2xl font-bold leading-8 tracking-tight">
-                            <Link href={`/${path}`} className="text-gray-900 dark:text-gray-100">
-                              {title}
-                            </Link>
-                          </h2>
-                          <div className="flex flex-wrap">
-                            {tags?.map((tag) => <Tag key={tag} text={tag} />)}
-                          </div>
-                        </div>
-                        <div className="prose max-w-none text-gray-500 dark:text-gray-400">
-                          {summary}
-                        </div>
-                      </div>
-                    </article>
-                  </li>
-                )
-              })}
-            </ul>
-            {pagination && pagination.totalPages > 1 && (
-              <Pagination currentPage={pagination.currentPage} totalPages={pagination.totalPages} />
-            )}
-          </div>
-        </div>
-      </div>
-    </>
+        </section>
+      ))}
+
+      {filtered.length === 0 && (
+        <p className="mt-8 text-ink-muted">해당하는 글이 없습니다.</p>
+      )}
+    </div>
   )
 }
